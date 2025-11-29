@@ -1,0 +1,87 @@
+{
+  "title": "Research",
+  "description": "My research focuses on machine learning algorithms for brain-computer interface systems, particularly EEG-based P300 Speller technology, and other areas of AI/ML.",
+  "publications": {
+    "title": "Publications",
+    "items": [
+      {
+        "title": "Subject-independent P300 Speller Classification using Time-Frequency Representation and Double Input CNN with Feature Concatenation",
+        "authors": "Zangar Ermaganbet, Ayana Mussabayeva, Muhammad Tahir Akhtar, Prashant Kumar Jamwal",
+        "conference": "DSP 2023",
+        "year": "2023",
+        "description": "This paper presents a novel approach to P300 speller classification using a double input CNN architecture that concatenates features for improved accuracy in subject-independent scenarios.",
+        "citation": "Z. Ermaganbet, A. Mussabayeva, M. T. Akhtar, P. K. Jamwal, \"Subject-independent P300 speller classification using time-frequency representation and double input CNN with feature concatenation,\" 2023 IEEE International Conference on Digital Signal Processing (DSP), pp. 1-5, 2023.",
+        "citationCount": 3,
+        "link": "https://ieeexplore.ieee.org/document/10167987/",
+        "tags": ["P300 Speller", "CNN", "EEG", "Feature Concatenation"]
+      },
+      {
+        "title": "Event-related spectrogram representation of EEG for CNN-based P300 speller",
+        "authors": "Ayana Mussabayeva, Muhammad Tahir Akhtar, Prashant Kumar Jamwal",
+        "conference": "APSIPA ASC 2021",
+        "year": "2021",
+        "description": "This research explores the use of event-related spectrograms as a representation method for EEG signals in CNN-based P300 speller systems.",
+        "citation": "A. Mussabayeva, M. T. Akhtar, P. K. Jamwal, \"Event-related spectrogram representation of EEG for CNN-based P300 speller,\" 2021 Asia-Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC), pp. 1267-1272, 2021.",
+        "citationCount": 5,
+        "link": "https://ieeexplore.ieee.org/document/9689328",
+        "tags": ["EEG", "Spectrogram", "CNN", "P300 Speller"],
+        "videoId": "cR9yCZQPGbc"
+      },
+      {
+        "title": "Ensemble learning approach for subject-independent P300 speller",
+        "authors": "Ayana Mussabayeva, Muhammad Tahir Akhtar, Prashant Kumar Jamwal",
+        "conference": "EMBC 2021",
+        "year": "2021",
+        "description": "This paper proposes an ensemble learning approach to improve the accuracy and robustness of subject-independent P300 speller systems.",
+        "citation": "A. Mussabayeva, M. T. Akhtar, P. K. Jamwal, \"Ensemble learning approach for subject-independent P300 speller,\" 2021 43rd Annual International Conference of the IEEE Engineering in Medicine & Biology Society (EMBC), pp. 6629-6632, 2021.",
+        "citationCount": 7,
+        "link": "https://ieeexplore.ieee.org/document/9629679",
+        "tags": ["Ensemble Learning", "P300 Speller", "Subject-Independent"]
+      },
+      {
+        "title": "Ensemble Voting-Based Multichannel EEG Classification in a Subject-Independent P300 Speller",
+        "authors": "Ayana Mussabayeva, Muhammad Tahir Akhtar, Prashant Kumar Jamwal",
+        "conference": "Applied Sciences 2021",
+        "year": "2021",
+        "description": "This study presents an ensemble voting-based approach for multichannel EEG classification in subject-independent P300 speller systems.",
+        "citation": "A. Mussabayeva, M. T. Akhtar, P. K. Jamwal, \"Ensemble Voting-Based Multichannel EEG Classification in a Subject-Independent P300 Speller,\" Applied Sciences, vol. 11, no. 23, p. 11252, 2021.",
+        "citationCount": 9,
+        "link": "https://www.mdpi.com/2076-3417/11/23/11252",
+        "tags": ["Ensemble Voting", "EEG", "Multichannel", "P300 Speller"]
+      },
+      {
+        "title": "Comparison of Generic and Subject-Specific Training for Features Classification in P300 Speller",
+        "authors": "Ayana Mussabayeva, Muhammad Tahir Akhtar, Prashant Kumar Jamwal",
+        "conference": "APSIPA ASC 2020",
+        "year": "2020",
+        "description": "This research compares the effectiveness of generic and subject-specific training approaches for feature classification in P300 speller systems.",
+        "citation": "A. Mussabayeva, M. T. Akhtar, P. K. Jamwal, \"Comparison of Generic and Subject-Specific Training for Features Classification in P300 Speller,\" 2020 Asia-Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC), pp. 1105-1110, 2020.",
+        "citationCount": 4,
+        "link": "https://ieeexplore.ieee.org/document/9306360",
+        "tags": ["P300 Speller", "Feature Classification", "Subject-Specific Training"]
+      }
+    ]
+  },
+  "interests": {
+    "title": "Research Interests",
+    "items": [
+      {
+        "title": "Brain-Computer Interfaces",
+        "description": "Developing machine learning algorithms for EEG-based brain-computer interface systems, with a focus on P300 speller technology."
+      },
+      {
+        "title": "Deep Learning",
+        "description": "Exploring novel deep learning architectures for signal processing and classification tasks."
+      },
+      {
+        "title": "Medical AI",
+        "description": "Investigating medical applications of AI for neural disorders, such as Alzheimer's disease."
+      },
+      {
+        "title": "Causality in ML",
+        "description": "Investigating causal relationships in machine learning models and their applications."
+      }
+    ]
+  }
+}
+

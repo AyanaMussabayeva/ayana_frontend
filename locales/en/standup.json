@@ -1,0 +1,63 @@
+{
+  "title": "Standup Comedy",
+  "description": "When I'm not researching AI or teaching, I enjoy performing standup comedy. Here you'll find my upcoming shows, past performances, and more.",
+  "upcomingShows": {
+    "title": "Upcoming Shows",
+    "items": [
+      {
+        "title": "Comedy Night at The Laughter Lounge",
+        "date": "March 15, 2025",
+        "time": "8:00 PM",
+        "location": "The Laughter Lounge, Abu Dhabi",
+        "description": "Join me for a night of comedy where I'll be sharing stories about life as an AI researcher and the funny side of academia.",
+        "ticketLink": "#"
+      },
+      {
+        "title": "International Comedy Festival",
+        "date": "April 22, 2025",
+        "time": "7:30 PM",
+        "location": "Dubai Comedy Club, Dubai",
+        "description": "I'll be performing alongside international comedians at this year's festival, bringing a unique blend of tech humor and cultural observations.",
+        "ticketLink": "#"
+      }
+    ]
+  },
+  "pastPerformances": {
+    "title": "Past Performances",
+    "items": [
+      {
+        "title": "Tech Comedy Night",
+        "date": "November 10, 2024",
+        "location": "Comedy Central, Abu Dhabi",
+        "videoLink": "#"
+      },
+      {
+        "title": "University Open Mic",
+        "date": "September 5, 2024",
+        "location": "MBZUAI Campus, Abu Dhabi",
+        "videoLink": "#"
+      },
+      {
+        "title": "Women in Tech Comedy Hour",
+        "date": "July 18, 2024",
+        "location": "The Funny Side, Dubai",
+        "videoLink": "#"
+      },
+      {
+        "title": "International Comedy Showcase",
+        "date": "May 22, 2024",
+        "location": "Laugh Factory, London",
+        "videoLink": "#"
+      }
+    ]
+  },
+  "about": {
+    "title": "About My Comedy",
+    "paragraphs": [
+      "My comedy draws from my unique experiences as a woman in tech, an AI researcher, and someone who has lived and worked across multiple countries and cultures. I enjoy finding humor in the everyday challenges of academic life, the quirks of technology, and the cultural differences I've encountered.",
+      "I started performing standup comedy as a way to balance the intensity of research work and found that my background in AI and data science gives me a unique perspective that audiences enjoy. My sets often include jokes about machine learning gone wrong, the absurdities of academic publishing, and what it's like to explain to my family what I actually do for a living.",
+      "Whether I'm performing for tech professionals who get all the nerdy references or general audiences who appreciate the universal aspects of my stories, I aim to create connections through laughter and shared experiences."
+    ]
+  }
+}
+

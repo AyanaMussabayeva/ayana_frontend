@@ -1,0 +1,113 @@
+{
+  "title": "Media",
+  "description": "Explore my media appearances, interviews, and features in various publications.",
+  "readMore": "Read More",
+  "backToMedia": "Back to Media",
+  "publishedOn": "Published on",
+  "articles": [
+    {
+      "id": "applied-mathematician-career-in-abu-dhabi",
+      "title": "Ayana Mussabayeva on Her Career as an Applied Mathematician in Abu Dhabi and Research in Data Processing",
+      "date": "February 25, 2025",
+      "publication": "WEproject",
+      "excerpt": "In our series about scientists from Central Asia, we meet young researchers and learn about their daily work, development prospects, and growth. Our new featured scientist, Ayana Mussabayeva, shares her experience as a scientist in Abu Dhabi.",
+      "images": [
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-WhL8kQLubPOBK9NFl1BET497QVEF3U.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-qVHMpGFCBrg9MPSM5rN75KxtPOiUvw.png"
+      ],
+      "content": [
+        {
+          "type": "section",
+          "title": "About Myself",
+          "paragraphs": [
+            "I am an applied mathematician conducting data research. Currently, I live in Abu Dhabi, pursuing my PhD at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI) while engaging in scientific activities. I also work as Head of Engineering and ML Engineer at the Kazakhstani startup GreenEye LTD, and in my free time, I perform standup comedy.",
+            "My interest in science emerged at Nazarbayev University during my master's studies. I worked in machine learning and signal processing for brain data with special systems that allow paralyzed people to communicate, similar to the device used by Stephen Hawking. This work resulted in four papers published at international conferences in Japan, Mexico, New Zealand, and Greece, as well as an article in Applied Science journal."
+          ]
+        },
+        {
+          "type": "section",
+          "title": "About Scientific Research",
+          "paragraphs": [
+            "After Nazarbayev University, I was invited to a PhD program at the University of Manchester in England, where I worked on numerical methods for identifying kinetic mechanisms of chemical reactions. However, the research topic was predetermined by the grant and wasn't as interesting to me, so I interrupted my studies after obtaining a master's degree. Later, I returned to doctoral studies but chose to focus on applying various machine learning algorithms for processing and classifying electroencephalogram signals.",
+            "I study Causality - a mixture of statistics, Bayesian methods, and in recent years, deep learning, to identify causal relationships in data. We apply these methods to brain data analysis. In neurology, there are many unknown cause-and-effect relationships that we try to uncover. For example, any brain development or degradation disease can be linked to various internal factors, such as genetics, and external factors like injuries. Through the lens of Causality, we try to determine whether there are actual cause-and-effect relationships between different factors, or if it's just correlation, or if both factors are consequences of some common hidden cause."
+          ]
+        },
+        {
+          "type": "section",
+          "title": "About Science in Kazakhstan",
+          "paragraphs": [
+            "Science in Kazakhstan develops slowly because it requires significant investment. Science doesn't provide immediate returns on investment; it might take decades. However, we are actively developing applied research areas that can yield immediate results. Overall, this is not bad, and it's even sufficient for now."
+          ]
+        },
+        {
+          "type": "section",
+          "title": "Recommendations for Young Scientists",
+          "paragraphs": [
+            "The main thing is to choose a research topic that interests you. I don't recommend completely changing your plans just to get into a PhD program. I had such an experience when I started studying in Manchester and eventually abandoned that idea. But now I'm doing what I truly enjoy.",
+            "It's never too late to start doing science; you can always come to it later, for example, closer to 40 years old, when you've already settled your life and don't feel like you're spending your most productive years on research."
+          ]
+        }
+      ],
+      "source": {
+        "url": "https://weproject.media/articles/detail/ayana-musabaeva-o-karere-prikladnogo-matematika-v-abu-dabi-i-issledovaniyakh-v-sfere-obrabotki-danny/",
+        "name": "WEproject",
+        "description": "WEproject is the leading media outlet about people in Central Asia (with 280K Instagram followers). It tells stories of creators, expats, entrepreneurs, and specialists, covering topics in art, education, travel, and technology."
+      },
+      "tags": ["Science", "Research", "Machine Learning", "Causality", "PhD", "Career"]
+    },
+    {
+      "id": "earning-as-comedian-harder-than-ml-engineer",
+      "title": "It's Much Harder to Earn as a Comedian than as an ML Engineer: Ayana Mussabayeva on Building a Career in Science While Doing Standup",
+      "date": "April 4, 2024",
+      "publication": "The Voice Media",
+      "excerpt": "At twenty-six, Ayana works as Head of ML/AI Engineer at INUI Gaming startup in Dubai. Her team is responsible for artificial intelligence and machine learning solutions in the company's product. In her free time, she performs comedy in both Russian and English in Kazakhstan and the UAE.",
+      "images": [
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6054.png-DAgHempXqkPDycylqSlr9o9ZTORx1u.jpeg",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9013-0sumkqVE2OHwLknxryC9VpBWdrDtrb.jpeg"
+      ],
+      "content": [
+        {
+          "type": "section",
+          "title": "Early Education and Research",
+          "paragraphs": [
+            "Ayana completed her bachelor's degree at KBTU in Almaty, specializing in Automation and Control. After graduation, she decided to pursue a master's degree at Nazarbayev University (NU).",
+            "\"I started my master's in MSc. in Electrical and Computer Engineering at NU. I also worked there as a Research Assistant (RA). It's great that they encourage research activities - it provides both experience and additional income.\""
+          ]
+        },
+        {
+          "type": "section",
+          "title": "Research and Academic Journey",
+          "paragraphs": [
+            "Ayana worked on signal processing and model building for brain-computer interface (BCI) systems. Her work was published at conferences, including IEEE EMBC, and in the Applied Sciences journal. Thanks to these publications and research experience at NU, she was accepted into a PhD program in mathematics at the University of Manchester.",
+            "\"After studying there for a year and a half, I transferred to a master's program and completed my second master's - MPhil in Mathematical Sciences. I didn't enjoy the research direction and life in Manchester enough to stretch it out for four years. In Manchester, I worked on numerical methods and machine learning for recognizing types of kinetic mechanisms in catalytic reactions. Now I work in the gaming industry, where we use neural networks and deep learning models.\""
+          ]
+        },
+        {
+          "type": "section",
+          "title": "Women in Science",
+          "paragraphs": [
+            "When asked about stereotypes and gender stigmatization of women scientists, Ayana shares that she hasn't encountered such issues.",
+            "\"Yes, there are usually fewer women in exact sciences: for example, in Manchester's mathematics department, among PhD students, women made up probably twenty percent. In other departments it's the opposite, and that's normal.\"",
+            "Regarding the scientific community in Kazakhstan, Ayana notes that few people work in science overall. \"The only university that can afford research activities is NU. There are many questions being raised about NU funding now, which negatively affects research opportunities. Other universities can't financially afford full-scale research when publishing one article in an international journal costs $1,000-2,000, and trips to international conferences cost even more.\""
+          ]
+        },
+        {
+          "type": "section",
+          "title": "Comedy and Performance",
+          "paragraphs": [
+            "From childhood, Ayana enjoyed performing on stage and singing. \"When visiting grandparents, I would 'perform' for them, making my mom formally announce the performance. I loved kindergarten celebrations. When I was five, we moved to Moscow as a family: dad worked there while mom stayed home with me. I didn't go to kindergarten in Moscow, but mom decided to take me to an audition at a music school, where I was accepted for violin lessons.\"",
+            "\"I've been doing standup for a long time, but with long breaks when I couldn't combine it with my main direction. For example, if it weren't for studying in Manchester and the long departure, I probably would have taken my performances to a more serious level. But I was away from Almaty for a long time, then I returned: I started performing more actively, sometimes appearing on posters, a couple of times I was even recognized on the street.\"",
+            "\"When I perform more often, I feel like I have to force myself to leave the house, as if it's turning from a hobby into an obligation. Of course, thoughts arose about doing comedy professionally, making it my main activity. But it's much harder to earn good money as a comedian than as an ML engineer. Therefore, I try to balance: rest on stage from office work, rest at my main job from excessive social interactions, develop in humor but without consequences for my main activity, in which years of work have already been invested.\""
+          ]
+        }
+      ],
+      "source": {
+        "url": "https://thevoicemedia.kz/zarabatyvatkomikomnamnogoslozhnee",
+        "name": "The Voice Media",
+        "description": "The Voice Media is a Kazakhstani online publication offering diverse content that promotes national identity and covers life in the regions of Kazakhstan."
+      },
+      "tags": ["Career", "Comedy", "Machine Learning", "Research", "Work-Life Balance", "Performance"]
+    }
+  ]
+}
+

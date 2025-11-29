@@ -1,0 +1,356 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/*
+Add the gradient animation to the globals.css file
+*/
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50
+%;
+  }
+  100% {
+    background-position: 0% 50
+%;
+  }
+}
+
+@keyframes gradient-y {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}
+
+.animate-gradient-y {
+  background-size: 200% 200%;
+  animation: gradient-y 3s ease infinite;
+}
+
+/* Update timeline styles for better spacing */
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  padding-bottom: 2.5rem;
+  transition: padding-bottom 0.3s ease;
+}
+
+/* Adjust the last timeline item */
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* Remove the default timeline styles since we're using gradient borders */
+.timeline-item:last-child::after {
+  display: none;
+}
+
+/* Add prose styles for blog content */
+.prose {
+  max-width: 65ch;
+  color: inherit;
+}
+
+.prose p {
+  margin-bottom: 1.25em;
+  line-height: 1.7;
+}
+
+.prose a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.prose ul {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+  list-style-type: disc;
+}
+
+.prose ol {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose blockquote {
+  font-style: italic;
+  border-left: 4px solid hsl(var(--muted));
+  padding-left: 1em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.prose h2 {
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  font-weight: 700;
+}
+
+.prose h3 {
+  font-size: 1.25em;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  font-weight: 600;
+}
+
+.dark .prose {
+  color: inherit;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Comprehensive Instagram caption hiding styles */
+.instagram-media .sqdOP.yWX7d._8A5w5,
+.instagram-media ._4EzTm,
+.instagram-media .C4VMK,
+.instagram-media .xLCgt,
+.instagram-media .KlCQn,
+.instagram-media ._7UhW9,
+.instagram-media [data-testid="post-comment-root"],
+.instagram-media p,
+.instagram-media div[style*="color: #3897f0"],
+.instagram-media div[style*="padding: 12.5% 0"],
+.instagram-media div[style*="padding: 19% 0"],
+.instagram-media p[style*="color: #c9c8cd"],
+.instagram-media div[style*="margin-bottom: 14px"],
+.instagram-media div[style*="margin-bottom: 24px"],
+.instagram-media div[style*="flex-direction: column"],
+.instagram-media div[style*="flex-grow: 1"],
+.instagram-media div[style*="justify-content: center"],
+.instagram-media a[style*="text-decoration: none"] > div,
+.instagram-media div[style*="display: flex"] + div,
+.instagram-media div[style*="padding: 19% 0"],
+.instagram-media div[style*="padding: 12.5% 0"] {
+  display: none !important;
+}
+
+/* Add black padding under the Instagram title */
+.instagram-embed-wrapper .instagram-media {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  margin: 0 !important;
+  height: 680px !important; /* Taller height for vertical videos */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important; /* Changed to flex-start to allow padding at the top */
+  padding: 0 15px !important; /* Add horizontal padding */
+  box-sizing: border-box !important;
+  background-color: #000 !important; /* Black background */
+}
+
+/* Keep the title visible but add padding below it */
+.instagram-embed-wrapper .instagram-media > div:first-child {
+  padding: 16px !important;
+  background-color: #fff !important;
+  margin-bottom: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Add black padding below the title */
+.instagram-embed-wrapper .instagram-media::after {
+  content: "";
+  display: block !important;
+  height: 20px !important;
+  width: 100% !important;
+  background-color: #000 !important;
+}
+
+/* Make the video container take up more space with black background */
+.instagram-embed-wrapper .instagram-media > div:not(:first-child) {
+  padding: 0 !important;
+  height: calc(100% - 60px) !important; /* Adjust height to account for title */
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background-color: #000 !important; /* Black background */
+}
+
+/* Ensure the video is centered and properly sized for vertical orientation */
+.instagram-embed-wrapper .instagram-media iframe {
+  height: 100% !important;
+  width: 100% !important;
+  max-width: 360px !important; /* Limit width to ensure proper vertical display */
+  margin: 0 auto !important;
+  aspect-ratio: 9 / 16 !important; /* Vertical video aspect ratio */
+  display: block !important;
+  background-color: #000 !important; /* Black background */
+}
+
+/* Add these styles to ensure Instagram embeds display properly */
+.instagram-media {
+  height: 100% !important;
+  max-height: 500px !important;
+}
+
+/* Hide comment sections */
+.instagram-media section,
+.instagram-media textarea,
+.instagram-media form,
+.instagram-media .X7cDz,
+.instagram-media ._1XyCr,
+.instagram-media ._15y0l,
+.instagram-media [role="button"][tabindex="0"],
+.instagram-media div[style*="padding-top: 6px"] {
+  display: none !important;
+}
+
+/* Ensure video container takes full height */
+.instagram-media > div:not(:first-child) {
+  height: calc(100% - 60px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Ensure iframe takes appropriate space */
+.instagram-media iframe {
+  height: 100% !important;
+  max-height: 440px !important;
+}
+
+/* Add specific styling for videos that don't fit vertical orientation */
+.instagram-embed-wrapper .instagram-media .EmbeddedMediaImage {
+  max-height: 100% !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  margin: 0 auto !important;
+  background-color: #000 !important; /* Black background */
+}
+
+/* Ensure all content is centered with black background */
+.instagram-embed-wrapper .instagram-media * {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Adjust carousel for vertical videos */
+.instagram-embed-wrapper {
+  margin: 0 auto !important;
+  background-color: #000 !important; /* Black background */
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Add this CSS rule to make the gradient borders not capture pointer events */
+.absolute.inset-0.rounded-lg.overflow-hidden.z-10,
+.absolute.inset-0.rounded-lg.overflow-hidden.z-10 > div {
+  pointer-events: none;
+}
+
+/* Ensure buttons have higher z-index and proper pointer events */
+button,
+a[role="button"],
+a,
+.button,
+[class*="Button"] {
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+/* LinkedIn embed styles */
+.linkedin-embed {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.linkedin-embed iframe {
+  max-width: 100%;
+  border-radius: 0.5rem;
+}
+

@@ -1,0 +1,94 @@
+{
+  "title": "Music",
+  "description": "Music has always been an important creative outlet for me. Here you can explore my musical projects, performances, and collaborations.",
+  "embeds": {
+    "title": "Featured Tracks",
+    "items": [
+      {
+        "src": "https://embed.music.apple.com/us/album/%D0%B3%D0%BB%D1%83%D0%BF%D1%8B%D0%B5-%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B/1543655761?i=1543655856",
+        "title": "Глупые вопросы",
+        "spotifySrc": "https://open.spotify.com/embed/track/0eeW8zP7J6R0rh9LeaaPtN?utm_source=generator"
+      },
+      {
+        "src": "https://embed.music.apple.com/us/album/%D0%BD%D0%B0-%D1%82%D0%BE%D0%B9-%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%B5-%D0%B3%D0%BE%D1%80%D0%B8%D0%B7%D0%BE%D0%BD%D1%82%D0%B0/1449786628?i=1449786650",
+        "title": "На той стороне горизонта",
+        "spotifySrc": "https://open.spotify.com/embed/track/5Cr7eLGc1qhUvjbubKMhAp?utm_source=generator"
+      },
+      {
+        "src": "https://embed.music.apple.com/us/album/%D0%BD%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F%D1%8F-%D0%BF%D1%80%D0%BE%D1%81%D1%8C%D0%B1%D0%B0/1446618104?i=1446618127",
+        "title": "Новогодняя просьба",
+        "spotifySrc": "https://open.spotify.com/embed/track/4eoTVNpOcGB75okKmge2NI?utm_source=generator"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "items": [
+      {
+        "title": "Algorithmic Melodies",
+        "description": "A fusion of traditional Kazakh music with electronic elements, created using AI-generated patterns based on folk melodies.",
+        "image": "/placeholder.svg?height=200&width=400",
+        "link": "#"
+      },
+      {
+        "title": "Neural Networks & Notes",
+        "description": "An experimental album exploring the intersection of machine learning and musical composition.",
+        "image": "/placeholder.svg?height=200&width=400",
+        "link": "#"
+      }
+    ]
+  },
+  "performances": {
+    "title": "Recent Performances",
+    "items": [
+      {
+        "title": "AI & Music Symposium",
+        "date": "October 12, 2024",
+        "location": "MBZUAI Auditorium, Abu Dhabi",
+        "description": "Performed a set of original compositions created with the assistance of machine learning algorithms, followed by a discussion on AI in musical creativity.",
+        "videoLink": "#"
+      },
+      {
+        "title": "Cultural Fusion Concert",
+        "date": "August 5, 2024",
+        "location": "Dubai Opera House, Dubai",
+        "description": "Collaborated with traditional Kazakh musicians and electronic artists to create a unique blend of cultural sounds and modern techniques.",
+        "videoLink": "#"
+      }
+    ]
+  },
+  "discography": {
+    "title": "Discography",
+    "albums": [
+      {
+        "title": "Data Harmonies",
+        "year": "2024",
+        "tracks": ["Neural Pathways", "Recursive Melodies", "Gradient Descent", "Backpropagation Blues", "Tensor Flow"],
+        "streamingLinks": {
+          "spotify": "#",
+          "appleMusic": "#",
+          "youtube": "#"
+        }
+      },
+      {
+        "title": "Algorithmic Emotions",
+        "year": "2023",
+        "tracks": ["Binary Heart", "Quantum Feelings", "Digital Dreams", "Analog Memories", "Silicon Soul"],
+        "streamingLinks": {
+          "spotify": "#",
+          "appleMusic": "#",
+          "youtube": "#"
+        }
+      }
+    ]
+  },
+  "background": {
+    "title": "Musical Background",
+    "paragraphs": [
+      "My musical journey began at an early age with classical piano training, which I continued throughout my education. As I delved deeper into technology and AI, I became fascinated by the intersection of music and machine learning.",
+      "I've explored various genres, from traditional Kazakh folk music to electronic and experimental compositions. My background in signal processing and machine learning has given me unique tools to create and manipulate sound in innovative ways.",
+      "Today, I continue to explore the creative possibilities at the intersection of AI and music, using algorithms to generate new musical patterns while maintaining the emotional core that makes music a universal language."
+    ]
+  }
+}
+

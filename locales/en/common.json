@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "title": "Ayana Mussabayeva | AI/ML Researcher",
+    "description": "Personal website of Ayana Mussabayeva, AI/ML Researcher and Educator"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "career": "Career",
+    "research": "Research",
+    "standup": "Standup",
+    "music": "Music",
+    "media": "Media",
+    "blog": "Blog"
+  },
+  "footer": {
+    "copyright": "© {year} Ayana Mussabayeva. All rights reserved.",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  }
+}
+

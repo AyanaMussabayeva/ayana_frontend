@@ -1,0 +1,133 @@
+{
+  "title": "Career",
+  "description": "My professional journey spans AI/ML research, education, and industry leadership roles.",
+  "experience": {
+    "title": "Professional Experience",
+    "items": [
+      {
+        "title": "Head of Engineering",
+        "company": "Green Eye Ltd",
+        "period": "December 2024 - Present",
+        "location": "Remote",
+        "description": "Leading engineering teams and implementing real-time video analysis technologies.",
+        "responsibilities": [
+          "Leading and tracking progress across multiple teams, including backend, frontend, mobile, UX/UI, DevOps, and machine learning",
+          "Collaborating with ML team to design and implement core machine learning technologies for real-time video analysis",
+          "Overseeing technical architecture and ensuring alignment with business objectives",
+          "Managing project timelines and resource allocation across engineering departments"
+        ],
+        "skills": [
+          "Engineering Leadership",
+          "Team Management",
+          "Real-time Video Analysis",
+          "Cross-functional Collaboration",
+          "Technical Architecture"
+        ]
+      },
+      {
+        "title": "Head of Artificial Intelligence and Machine Learning",
+        "company": "Green Eye Ltd",
+        "period": "October 2024 - December 2024",
+        "location": "Remote",
+        "description": "Led ML team and developed architecture for computer vision applications.",
+        "responsibilities": [
+          "Leading a team of 3 senior ML engineers",
+          "Developing and designing project's ML architecture",
+          "Implementing deep learning models for action detection, face detection and recognition",
+          "Establishing ML development workflows and best practices",
+          "Collaborating with other engineering teams to integrate ML solutions"
+        ],
+        "skills": [
+          "Machine Learning",
+          "Deep Learning",
+          "Computer Vision",
+          "Action Detection",
+          "Face Recognition",
+          "Team Leadership"
+        ]
+      },
+      {
+        "title": "Head of AI/ML",
+        "company": "INUI GAMING",
+        "period": "October 2023 - October 2024",
+        "location": "Dubai, UAE",
+        "description": "Led AI/ML initiatives for a gaming platform that prevents cheating in multiplayer games, with a total raise of $17.8 million.",
+        "responsibilities": [
+          "Established company's ML/AI function, leading a team on innovative projects for the gaming industry",
+          "Developed anticheat systems for Counter Strike 2 and CS:GO using computer vision and deep learning",
+          "Created recommendation systems for content suggestions and gaming marketplace",
+          "Designed match-making and ranking systems for team play modes in Counter Strike",
+          "Scaled the team from 2 to 5 senior ML engineers, overseeing hiring and onboarding",
+          "Managed cross-team communication and stakeholder collaboration"
+        ],
+        "skills": ["Machine Learning", "Deep Learning", "Computer Vision", "Team Leadership", "Recommendation Systems"]
+      },
+      {
+        "title": "Senior Lecturer",
+        "company": "Kazakh-British Technical University",
+        "period": "January 2023 - June 2023",
+        "location": "Almaty, Kazakhstan",
+        "description": "Designed and taught Electronics & Digital Design course for second-year undergraduate students.",
+        "responsibilities": [
+          "Developed comprehensive curriculum for Electronics & Digital Design",
+          "Delivered lectures and practical sessions to undergraduate students",
+          "Designed assessments and evaluated student performance",
+          "Provided academic guidance and support to students"
+        ],
+        "skills": ["Teaching", "Curriculum Development", "Electronics", "Digital Design"]
+      },
+      {
+        "title": "Teaching Assistant",
+        "company": "University of Manchester",
+        "period": "February 2022 - December 2022",
+        "location": "Manchester, UK",
+        "description": "Taught various courses to undergraduate students across different years.",
+        "responsibilities": [
+          "Taught Calculus to first-year students",
+          "Delivered Introduction to Python course to second-year students",
+          "Taught Statistical Inference to third-year students",
+          "Provided support during practical sessions and office hours",
+          "Assisted with grading and providing feedback on assignments"
+        ],
+        "skills": ["Teaching", "Calculus", "Python", "Statistical Inference"]
+      },
+      {
+        "title": "Research Assistant",
+        "company": "Nazarbayev University",
+        "period": "October 2019 - December 2021",
+        "location": "Astana, Kazakhstan",
+        "description": "Designed machine learning algorithms for brain-computer interface systems, specifically the EEG-based P300 Speller.",
+        "responsibilities": [
+          "Developed novel machine learning algorithms for EEG signal processing",
+          "Conducted research on P300 Speller technology",
+          "Published 5 academic papers in international conferences and journals",
+          "Collaborated with interdisciplinary research teams",
+          "Presented research findings at academic conferences"
+        ],
+        "skills": ["Machine Learning", "EEG Signal Processing", "Research", "Academic Writing", "P300 Speller"]
+      }
+    ]
+  },
+  "community": {
+    "title": "Community Leadership",
+    "items": [
+      {
+        "title": "Founder",
+        "organization": "IT Jobs KZ",
+        "description": "Founded and managed a job board dedicated to IT specialists in Kazakhstan, connecting talented professionals with employers in the tech industry.",
+        "link": "https://t.me/it_jobs_kz",
+        "linkType": "telegram",
+        "skills": ["Community Building", "IT Recruitment", "Career Development"]
+      },
+      {
+        "title": "Co-founder",
+        "organization": "DSML KZ",
+        "description": "Co-founded and grew a community of data scientists in Kazakhstan to over 7,000 members, organizing events, workshops, and knowledge-sharing initiatives.",
+        "link": "https://www.dsml.kz/",
+        "logo": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dsml_logo-Tv9XHOxlcXSjEPGpM2btfQhncHUaM1.png",
+        "skills": ["Data Science", "Machine Learning", "Community Management", "Event Organization"]
+      }
+    ]
+  }
+}
+

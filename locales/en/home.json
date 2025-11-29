@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "title": "Ayana Mussabayeva",
+    "subtitle": "AI/ML Researcher • Engineering Leader • Community Builder",
+    "buttons": {
+      "viewResume": "View Resume",
+      "researchWork": "Research Work"
+    }
+  },
+  "quickLinks": {
+    "title": "Explore My Work",
+    "cards": [
+      {
+        "title": "Career",
+        "description": "My professional journey in AI/ML and engineering leadership",
+        "href": "/career"
+      },
+      {
+        "title": "Research",
+        "description": "Publications and academic contributions",
+        "href": "/research"
+      },
+      {
+        "title": "Standup",
+        "description": "My standup comedy performances and events",
+        "href": "/standup"
+      },
+      {
+        "title": "Music",
+        "description": "Musical projects and performances",
+        "href": "/music"
+      },
+      {
+        "title": "Media",
+        "description": "Interviews, talks, and media appearances",
+        "href": "/media"
+      },
+      {
+        "title": "About Me",
+        "description": "Learn more about my background and skills",
+        "href": "/about"
+      }
+    ]
+  },
+  "bio": {
+    "title": "Currently doing research at MBZUAI, Abu-Dhabi",
+    "paragraphs": [
+      "Currently I'm pursuing a PhD in Machine Learning at Mohamed bin Zayed University of Artificial Intelligence. My main research interests now cover causal representation learning, brain data analysis, causal AI and medical applications of AI.",
+      "I am also working as a Head of Engineering on contract basis at a startup GreenEye Ltd, where I contribute to the vision of the product and lead multiple engineering teams."
+    ],
+    "button": "Learn More About Me",
+    "researchInterests": {
+      "title": "Research Interests",
+      "interests": [
+        "Machine Learning & Deep Learning",
+        "Causal Representation Learning",
+        "Brain-Computer Interfaces",
+        "Medical AI Applications",
+        "Causal AI",
+        "Signal Processing"
+      ]
+    }
+  }
+}
+

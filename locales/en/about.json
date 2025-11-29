@@ -1,0 +1,211 @@
+{
+  "title": "About",
+  "sidebar": {
+    "contact": {
+      "title": "Contact",
+      "email": "ayana.mussabayeva@gmail.com",
+      "github": "AyanaMussabayeva",
+      "linkedin": "ayana-mussabayeva"
+    },
+    "languages": {
+      "title": "Languages",
+      "items": ["English (Professional, IELTS: 8.0)", "Russian (First language)", "Kazakh (Second language)"]
+    },
+    "skills": {
+      "title": "Skills",
+      "items": [
+        "Machine Learning",
+        "Deep Learning",
+        "Signal Processing",
+        "Numerical Methods",
+        "Python",
+        "ML/DL Frameworks"
+      ]
+    },
+    "awards": {
+      "title": "Awards",
+      "items": [
+        "Associate Fellow of the Higher Education Academy (AFHEA), 2023",
+        "CodeJam to I/O for Women coding competition winner, 2019"
+      ]
+    },
+    "community": {
+      "title": "Community Service",
+      "items": [
+        {
+          "title": "Founder of IT Jobs KZ",
+          "description": "Job board for IT specialists in Kazakhstan",
+          "link": "https://t.me/it_jobs_kz",
+          "linkType": "telegram"
+        },
+        {
+          "title": "Co-founder of DSML KZ",
+          "description": "Community of data scientists in Kazakhstan with over 7,000 members",
+          "link": "https://www.dsml.kz/",
+          "logo": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dsml_logo-Tv9XHOxlcXSjEPGpM2btfQhncHUaM1.png",
+          "linkType": "website"
+        }
+      ]
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "items": [
+      {
+        "title": "Head of Engineering (Dec 2024 - Present) | Head of AI/ML (Oct 2024 - Dec 2024)",
+        "company": "Green Eye Ltd",
+        "period": "October 2024 - Present",
+        "location": "Remote",
+        "description": [
+          "Promoted to Head of Engineering after successfully establishing the company's ML function.",
+          "Current responsibilities:",
+          "• Leading and tracking progress across multiple teams, including backend, frontend, mobile, UX/UI, DevOps, and machine learning",
+          "• Collaborating with ML team to design and implement core machine learning technologies for real-time video analysis",
+          "• Overseeing technical architecture and ensuring alignment with business objectives",
+          "Previous role as Head of AI/ML:",
+          "• Led a team of 3 senior ML engineers",
+          "• Developed and designed project's ML architecture",
+          "• Implemented deep learning models for action detection, face detection and recognition"
+        ]
+      },
+      {
+        "title": "Head of AI/ML",
+        "company": "INUI GAMING",
+        "period": "October 2023 - October 2024",
+        "location": "Dubai, UAE",
+        "description": [
+          "Established company's ML/AI function, leading a team on innovative projects for the gaming industry:",
+          "• Anticheat system for Counter Strike 2 and CS:GO (computer vision based solutions for WallHack cheats and sophisticated deep learning and mathematical algorithms for AimBot, Spinbot type of cheats)",
+          "• Recommendation systems for content suggestions and gaming marketplace",
+          "• Match-making and ranking system for normal and custom modes of team playing in Counter Strike",
+          "",
+          "Scaled the team from 2 to 5 senior ML engineers, overseeing the entire hiring process",
+          "Managed cross-team communication and stakeholder collaboration to ensure alignment, optimizing project delivery",
+          "Gaming platform that prevents cheating in multiplayer games, total raise of $17.8 million"
+        ]
+      },
+      {
+        "title": "Senior Lecturer",
+        "company": "Kazakh-British Technical University",
+        "period": "January 2023 - June 2023",
+        "location": "Almaty, Kazakhstan",
+        "description": [
+          "Designed and taught Electronics & Digital Design course for second year undergraduate students of Faculty of Information Technologies"
+        ]
+      },
+      {
+        "title": "Teaching Assistant",
+        "company": "University of Manchester",
+        "period": "February 2022 - December 2022",
+        "location": "Manchester, UK",
+        "description": [
+          "Taught Calculus (1st year students), Introduction to Python (2nd year students), Statistical Inference (3rd year students)"
+        ]
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "title": "PhD in Machine Learning",
+        "institution": "Mohammed bin Zayed University of Artificial Intelligence",
+        "period": "August 2024 - Present",
+        "location": "Abu-Dhabi, UAE",
+        "description": [
+          "Relevant coursework: Advanced Continuous Optimization · Parallel and Distributed ML · Advanced Topics in Causality & ML",
+          "Member of BioMedIA and Causality research groups",
+          "Global top 20 across ML, CV, NLP (CSRankings), world's first AI university"
+        ]
+      },
+      {
+        "title": "MPhil. in Mathematical Sciences",
+        "institution": "University of Manchester",
+        "period": "August 2021 - August 2023",
+        "location": "Manchester, UK",
+        "description": [
+          "Developed mathematical approaches to infer kinetics as a system of ODEs from catalytic reactions time-series data under the supervision of Prof. Stefan Güttel and Prof. Igor Larrosa",
+          "Numerical linear algebra group member",
+          "Engineering and Physical Sciences Research Council (EPSRC) scholarship holder (full coverage of tuition fees and £17.667 of yearly stipend)",
+          "Ranked 34th in the world and 6th in the UK (QSRankings)"
+        ],
+        "media": [
+          {
+            "type": "image",
+            "url": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/poster_NLH60conference.jpg-QSFV1uenOZf5AuMUiOpCt3vX2x2ROd.jpeg",
+            "alt": "Presenting research poster at NLH60 conference",
+            "caption": "Poster session at NJH60: Advances in Numerical Linear Algebra, celebrating the 60th Birthday of Nick Higham"
+          },
+          {
+            "type": "image",
+            "url": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nla_group-aAuzyWQ0Tj3vZtWXcJ0z2B2fMJfFf6.jpeg",
+            "alt": "Numerical Linear Algebra Group at the University of Manchester",
+            "caption": "Member of the Numerical Linear Algebra (NLA) Group at the University of Manchester"
+          }
+        ]
+      },
+      {
+        "title": "MSc. in Electrical and Computer Engineering",
+        "institution": "Nazarbayev University",
+        "period": "August 2019 - June 2021",
+        "location": "Astana, Kazakhstan",
+        "description": [
+          "CGPA: 3.30 (out of 4.00)",
+          "Activities and societies: Member of \"Stand Up! Night\" stand up comedy club",
+          "Worked as a Research Assistant (RA) at Advanced Signal Processing Laboratory under the supervision of Prof. Muhammad Tahir Akhtar and Prof. Prashant Kumar Jamwal.",
+          "The research output was presented and published at four conferences across the globe (APSIPA ASC 2020, EMBC 2021, APSIPA ASC 2021, DSP 2023) and in Applied Sciences journal",
+          "Thesis: \"Meta-Classification of Brain Signals in P300 Speller\". Implementation of EEG features classification using deep learning models",
+          "Top-1 research university in Kazakhstan"
+        ],
+        "media": [
+          {
+            "type": "image",
+            "url": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hall_of_fame_poster.jpg-Ya6z7WRZ0evTgpM0YAKd6ufCzixS2a.jpeg",
+            "alt": "NU SEDS Hall of Fame poster",
+            "caption": "Featured in Nazarbayev University's Hall of Fame"
+          },
+          {
+            "type": "image",
+            "url": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/standup_concert.jpg-9piQIcudoNn1FDC9pcgxJmKUpUNkYF.jpeg",
+            "alt": "Performing at Stand Up! Night concert",
+            "caption": "Performing at Stand Up! Night concert with an audience of 600 people"
+          }
+        ]
+      },
+      {
+        "title": "BEng. in Automation and Control",
+        "institution": "Kazakh-British Technical University",
+        "period": "August 2015 - June 2019",
+        "location": "Almaty, Kazakhstan",
+        "description": [
+          "CGPA: 3.68 (out of 4.00)",
+          "Activities and societies: President of FunLife student stand up comedy club",
+          "Coursework: Modeling and Identification of Control Object, Theory of Control, Sensors and Actuators, Microcontrollers, Microprocessors, Electronics, Algorithms and Data Structures, Object Oriented Programming, Low Level Programming, Computer Networks",
+          "Achievements: \n• Google I/O 2019 participant (Code Jam to I/O for Women top competitor)\n• KBTU Success 2019 award holder \n• Winner of Hackathon 4.0: Data for future (by Unicef and Microsoft)\n• Winner of \"Digitalization of the ecosystem of health and social protection. Blockchain\" hackathon by Unicef",
+          "ABET accredited university"
+        ],
+        "media": [
+          {
+            "type": "image",
+            "url": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/KBTU_success_award-6GnNKDsHOOMXnRNFpb4L9ZmYMlw0QO.jpeg",
+            "alt": "KBTU Success 2019 award recipient",
+            "caption": "Receiving the KBTU Success 2019 award and trophy"
+          },
+          {
+            "type": "image",
+            "url": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hackethon40_data_for_future-nGAW8rQ9DFRdMxdQzg0JFLSllUxDYm.jpeg",
+            "alt": "Winner team at Hackathon 4.0: Data for Future",
+            "caption": "Winner team at Hackathon 4.0: Data for Future, organized by UNICEF and Microsoft"
+          },
+          {
+            "type": "image",
+            "url": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hackathon_digitalization_of_ecosystem-spoKsxkeSCayHP5Dji2StEzR1W0Jei.jpeg",
+            "alt": "Winners of Digitalization of Ecosystem hackathon",
+            "caption": "Winner team at the Digitalization of Ecosystem hackathon by UNICEF"
+          }
+        ]
+      }
+    ]
+  }
+}
+
