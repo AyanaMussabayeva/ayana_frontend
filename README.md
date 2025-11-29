@@ -1,29 +1,31 @@
 # Ayana Personal Website
 
-Next.js 14 app for Ayana's personal site, migrated from v0.dev. The repo is ready for local development and Vercel deployment.
+This is the source for Ayana Mussabayeva’s personal site, live at https://ayana.best. It’s a Next.js 14 App Router project deployed on Vercel (Spaceship). Repo is the single source of truth for prod deploys.
 
-## Prerequisites
-- Node.js 18.17+ (20.x recommended)
-- pnpm installed globally (`npm install -g pnpm`)
+## Stack
+- Next.js 14 (App Router) + React 18 + TypeScript
+- Tailwind CSS, shadcn/ui, Radix UI
+- i18next for copy; pnpm for package management
+
+## Hosting
+- Vercel (Spaceship). Production domain: https://ayana.best
+- Deploys from the GitHub repo’s default branch; preview deployments on PRs.
 
 ## Local setup
+Prereqs: Node.js 18.17+ (20.x recommended) and pnpm installed globally.
 ```bash
 pnpm install
-pnpm dev
+pnpm dev   # http://localhost:3000
 ```
-The site runs at http://localhost:3000. Lint or build locally before pushing:
+Optional checks:
 ```bash
 pnpm lint
-pnpm build
+pnpm build   # requires network to fetch the Inter font via next/font
 ```
 
-## Deploying on Vercel (GitHub integration)
-1. Push this repository to GitHub (done).
-2. In Vercel, **Import Project** → choose the GitHub repo.
-3. Framework preset: **Next.js**. Build command `pnpm build`, install command `pnpm install`. Output directory defaults to `.vercel/output` (handled by Next).
-4. Environment variables: none required currently. Add them in Vercel if you introduce any later.
-5. Click **Deploy**. Vercel will build on every push to the default branch.
-
-## Notes
-- `components.json` now points at `tailwind.config.js` to match the repo, so shadcn/ui commands work without edits.
-- Images are served unoptimized (`next.config.mjs`), matching the v0.dev export. Update if you want Next.js image optimization.
+## Deploying on Vercel (from GitHub)
+1) In Vercel, **Import Project** and pick this GitHub repo.  
+2) Framework preset: **Next.js**. Install command `pnpm install`, build command `pnpm build`; output is handled automatically.  
+3) Env vars: none required currently.  
+4) Set the production domain to `ayana.best` (already in use on the existing project).  
+5) Deploy; Vercel will build on every push to the default branch.
