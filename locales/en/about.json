@@ -52,20 +52,26 @@
     "title": "Experience",
     "items": [
       {
-        "title": "Head of Engineering (Dec 2024 - Present) | Head of AI/ML (Oct 2024 - Dec 2024)",
+        "title": "Advising CTO",
+        "company": "QData",
+        "period": "August 2025 - Present",
+        "location": "Astana, Kazakhstan",
+        "description": [
+          "Set technical vision and architected platform for real-time video processing and analytics for hazardous situations detection (physical aggression, injuries, fire/smoke, unauthorized people) and discipline monitoring (attendance tracking, school policies violations).",
+          "Led a cross-functional engineering team of ~10 specialists (ML, backend, frontend, DevOps, network & hardware engineering).",
+          "Pilot launch in two schools in Astana."
+        ]
+      },
+      {
+        "title": "CTO (Dec 2024 - Jul 2025) | Head of AI/ML (Oct 2024 - Dec 2024)",
         "company": "Green Eye Ltd",
-        "period": "October 2024 - Present",
+        "period": "October 2024 - July 2025",
         "location": "Remote",
         "description": [
-          "Promoted to Head of Engineering after successfully establishing the company's ML function.",
-          "Current responsibilities:",
-          "• Leading and tracking progress across multiple teams, including backend, frontend, mobile, UX/UI, DevOps, and machine learning",
-          "• Collaborating with ML team to design and implement core machine learning technologies for real-time video analysis",
-          "• Overseeing technical architecture and ensuring alignment with business objectives",
-          "Previous role as Head of AI/ML:",
-          "• Led a team of 3 senior ML engineers",
-          "• Developed and designed project's ML architecture",
-          "• Implemented deep learning models for action detection, face detection and recognition"
+          "As Head of AI/ML: Set up ML research workflows and built core CV systems (YOLO, keypoint interaction, face recognition) for event and action detection; validated feasibility through MVPs deployed in real school environments.",
+          "As CTO (Dec 2024 - Jul 2025): Led a cross-functional engineering team of ~25 specialists (ML, backend, frontend, mobile, UX/UI, DevOps).",
+          "Architected platform for real-time processing, alerting, and analytics in educational institutions.",
+          "Built the engineering organization from scratch; owned end-to-end hiring: sourcing, interviews, onboarding."
         ]
       },
       {
@@ -208,4 +214,3 @@
     ]
   }
 }
-

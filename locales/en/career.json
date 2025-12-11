@@ -5,23 +5,42 @@
     "title": "Professional Experience",
     "items": [
       {
-        "title": "Head of Engineering",
-        "company": "Green Eye Ltd",
-        "period": "December 2024 - Present",
-        "location": "Remote",
-        "description": "Leading engineering teams and implementing real-time video analysis technologies.",
+        "title": "Advising CTO",
+        "company": "QData",
+        "period": "August 2025 - Present",
+        "location": "Astana, Kazakhstan",
+        "description": "Advisor-level CTO for real-time video analytics and safety monitoring platform.",
         "responsibilities": [
-          "Leading and tracking progress across multiple teams, including backend, frontend, mobile, UX/UI, DevOps, and machine learning",
-          "Collaborating with ML team to design and implement core machine learning technologies for real-time video analysis",
-          "Overseeing technical architecture and ensuring alignment with business objectives",
-          "Managing project timelines and resource allocation across engineering departments"
+          "Set technical vision and architected platform for real-time video processing and analytics for hazardous situation detection (physical aggression, injuries, fire/smoke, unauthorized people) and discipline monitoring (attendance tracking, school policy violations)",
+          "Led a cross-functional engineering team of ~10 specialists (ML, backend, frontend, DevOps, network & hardware engineering)",
+          "Delivered pilot launch in two schools in Astana"
         ],
         "skills": [
-          "Engineering Leadership",
-          "Team Management",
-          "Real-time Video Analysis",
-          "Cross-functional Collaboration",
-          "Technical Architecture"
+          "Technical Leadership",
+          "Real-time Video Analytics",
+          "Safety & Security Systems",
+          "Cross-functional Team Management",
+          "Platform Architecture"
+        ]
+      },
+      {
+        "title": "Chief Technology Officer",
+        "company": "Green Eye Ltd",
+        "period": "December 2024 - July 2025",
+        "location": "Remote",
+        "description": "Led the full engineering organization for a real-time safety and analytics platform in education.",
+        "responsibilities": [
+          "Led a cross-functional engineering team of ~25 specialists (ML, backend, frontend, mobile, UX/UI, DevOps)",
+          "Architected a platform for real-time processing, alerting, and analytics in educational institutions",
+          "Built the engineering organization from scratch and owned end-to-end hiring: sourcing, interviews, onboarding"
+        ],
+        "skills": [
+          "Technical Leadership",
+          "Engineering Management",
+          "Real-time Systems",
+          "Platform Architecture",
+          "Hiring & Team Building",
+          "Cross-functional Collaboration"
         ]
       },
       {
@@ -31,11 +50,8 @@
         "location": "Remote",
         "description": "Led ML team and developed architecture for computer vision applications.",
         "responsibilities": [
-          "Leading a team of 3 senior ML engineers",
-          "Developing and designing project's ML architecture",
-          "Implementing deep learning models for action detection, face detection and recognition",
-          "Establishing ML development workflows and best practices",
-          "Collaborating with other engineering teams to integrate ML solutions"
+          "Set up ML research workflows and built core computer vision systems (YOLO, keypoint interaction, face recognition) for event and action detection",
+          "Validated feasibility through MVPs deployed in real school environments"
         ],
         "skills": [
           "Machine Learning",
@@ -130,4 +146,3 @@
     ]
   }
 }
-

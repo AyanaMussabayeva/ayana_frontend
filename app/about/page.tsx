@@ -233,18 +233,15 @@ export default function AboutPage() {
                     )}
 
                     {/* Expandable content */}
-                    <div
-                      className={cn(
-                        "mt-3 text-sm space-y-2 overflow-hidden transition-all duration-300",
-                        expandedExperienceItems[index] ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0",
-                      )}
-                    >
-                      {item.description.map((desc, i) => (
-                        <p key={i} className="text-muted-foreground">
-                          {desc}
-                        </p>
-                      ))}
-                    </div>
+                    {expandedExperienceItems[index] && (
+                      <div className="mt-3 text-sm space-y-2">
+                        {item.description.map((desc, i) => (
+                          <p key={i} className="text-muted-foreground">
+                            {desc}
+                          </p>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -310,34 +307,51 @@ export default function AboutPage() {
                     )}
 
                     {/* Display the rest of the description items (personal achievements) */}
-                    <div
-                      className={cn(
-                        "mt-3 text-sm space-y-2 overflow-hidden transition-all duration-300",
-                        expandedEducationItems[index] ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0",
-                      )}
-                    >
-                      {item.description.slice(0, -1).map((desc, i) => (
-                        <p key={i} className="text-muted-foreground">
-                          {desc}
-                        </p>
-                      ))}
+                    {expandedEducationItems[index] && (
+                      <div className="mt-3 text-sm space-y-2">
+                        {item.description.slice(0, -1).map((desc, i) => (
+                          <p key={i} className="text-muted-foreground">
+                            {desc}
+                          </p>
+                        ))}
 
-                      {/* Add media section inside the expandable content */}
-                      {item.media && (
-                        <div className="mt-4">
-                          {item.title.includes("BEng") || item.title.includes("MPhil") || item.title.includes("MSc") ? (
-                            // Grid layout for sections with multiple images
-                            <div className="space-y-6">
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Add media section inside the expandable content */}
+                        {item.media && (
+                          <div className="mt-4">
+                            {item.title.includes("BEng") || item.title.includes("MPhil") || item.title.includes("MSc") ? (
+                              // Grid layout for sections with multiple images
+                              <div className="space-y-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                  {item.media.map((mediaItem, mediaIndex) => (
+                                    <div key={mediaIndex} className="space-y-2">
+                                      <div className="relative rounded-lg overflow-hidden border bg-muted/10 aspect-[4/3]">
+                                        <Image
+                                          src={mediaItem.url || "/placeholder.svg"}
+                                          alt={mediaItem.alt}
+                                          width={400}
+                                          height={300}
+                                          className="w-full h-full object-cover"
+                                        />
+                                      </div>
+                                      {mediaItem.caption && (
+                                        <p className="text-xs text-muted-foreground italic">{mediaItem.caption}</p>
+                                      )}
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ) : (
+                              // Default vertical layout for other education items
+                              <div className="space-y-4">
                                 {item.media.map((mediaItem, mediaIndex) => (
                                   <div key={mediaIndex} className="space-y-2">
-                                    <div className="relative rounded-lg overflow-hidden border bg-muted/10 aspect-[4/3]">
+                                    <div className="relative rounded-lg overflow-hidden border bg-muted/10">
                                       <Image
                                         src={mediaItem.url || "/placeholder.svg"}
                                         alt={mediaItem.alt}
-                                        width={400}
-                                        height={300}
-                                        className="w-full h-full object-cover"
+                                        width={600}
+                                        height={400}
+                                        className="w-full max-w-[500px] h-auto object-cover mx-auto"
                                       />
                                     </div>
                                     {mediaItem.caption && (
@@ -346,31 +360,11 @@ export default function AboutPage() {
                                   </div>
                                 ))}
                               </div>
-                            </div>
-                          ) : (
-                            // Default vertical layout for other education items
-                            <div className="space-y-4">
-                              {item.media.map((mediaItem, mediaIndex) => (
-                                <div key={mediaIndex} className="space-y-2">
-                                  <div className="relative rounded-lg overflow-hidden border bg-muted/10">
-                                    <Image
-                                      src={mediaItem.url || "/placeholder.svg"}
-                                      alt={mediaItem.alt}
-                                      width={600}
-                                      height={400}
-                                      className="w-full max-w-[500px] h-auto object-cover mx-auto"
-                                    />
-                                  </div>
-                                  {mediaItem.caption && (
-                                    <p className="text-xs text-muted-foreground italic">{mediaItem.caption}</p>
-                                  )}
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -381,4 +375,3 @@ export default function AboutPage() {
     </div>
   )
 }
-

@@ -4,9 +4,42 @@ import { Button } from "@/components/ui/button"
 import { MessageSquare, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import i18n from "@/lib/i18n"
+import careerData from "@/locales/en/career.json"
 
-const career = i18n.getResourceBundle("en", "career")
+type ExperienceItem = {
+  title: string
+  company: string
+  period: string
+  location: string
+  description?: string
+  responsibilities: string[]
+  skills: string[]
+}
+
+type CommunityItem = {
+  title: string
+  organization: string
+  description: string
+  skills: string[]
+  link?: string
+  linkType?: "telegram" | "website"
+  logo?: string
+}
+
+type CareerContent = {
+  title: string
+  description: string
+  experience: {
+    title: string
+    items: ExperienceItem[]
+  }
+  community: {
+    title: string
+    items: CommunityItem[]
+  }
+}
+
+const career = careerData as CareerContent
 
 export default function CareerPage() {
   return (
@@ -128,4 +161,3 @@ export default function CareerPage() {
     </div>
   )
 }
-
