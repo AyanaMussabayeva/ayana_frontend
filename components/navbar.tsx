@@ -10,7 +10,7 @@ import { useState } from "react"
 // Import the navigation items directly to avoid i18n issues
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "Career", path: "/about" },
+  { name: "Careers", path: "/careers" },
   { name: "Research", path: "/research" },
   { name: "Blog", path: "/blog" },
   { name: "Standup", path: "/standup" },
@@ -87,4 +87,3 @@ export function Navbar() {
     </header>
   )
 }
-

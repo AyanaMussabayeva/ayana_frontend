@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import blogData from "../../locales/en/blog.json"
 
@@ -59,7 +60,29 @@ export default function BlogPage() {
                     ></iframe>
                   </div>
                 )}
+                {!featuredPost.videoId && featuredPost.image && (
+                  <div className="mb-4">
+                    <Image
+                      src={featuredPost.image}
+                      alt={featuredPost.title}
+                      width={1200}
+                      height={675}
+                      className="w-full h-auto rounded-lg"
+                      priority
+                      sizes="100vw"
+                    />
+                  </div>
+                )}
                 <p className="text-muted-foreground">{featuredPost.excerpt}</p>
+                {featuredPost.link && (
+                  <p className="text-sm">
+                    The book can be downloaded{" "}
+                    <Link href={featuredPost.link} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">
+                      here
+                    </Link>
+                    .
+                  </p>
+                )}
                 <div className="flex flex-wrap gap-2">
                   {featuredPost.tags.map((tag) => (
                     <Badge key={tag} variant="secondary">
@@ -118,6 +141,18 @@ export default function BlogPage() {
                       ></iframe>
                     </div>
                   )}
+                  {!post.videoId && post.image && (
+                    <div className="mb-4">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        width={1200}
+                        height={675}
+                        className="w-full h-auto rounded-lg"
+                        sizes="100vw"
+                      />
+                    </div>
+                  )}
                   <p className="text-muted-foreground">{post.excerpt}</p>
                   <div className="flex flex-wrap gap-2">
                     {post.tags.map((tag) => (
@@ -140,4 +175,3 @@ export default function BlogPage() {
     </div>
   )
 }
-

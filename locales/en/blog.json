@@ -6,19 +6,130 @@
   "publishedOn": "Published on",
   "posts": [
     {
+      "id": "eeg-foundation-challenge-2025",
+      "title": "EEG Foundation Challenge win!",
+      "date": "November 17, 2025",
+      "excerpt": "Our MBZUAI team (Anuar Aimoldin, Ayana Mussabayeva, Yedige Mussabayev) took first place in the EEG Foundation Challenge at NeurIPS Competition Track 2025.",
+      "content": [
+        "Happy to share that our team MBZUAI (Anuar Aimoldin, Ayana Mussabayeva, and Yedige Mussabayev) took the absolute first place (by combined metric) in the EEG Foundation Challenge, part of the NeurIPS Competition Track 2025!",
+        "The challenge consisted of two tasks:",
+        "1. Prediction of reaction time from stimulus-locked EEG: where we reframed the problem as temporal segmentation to localize the response event.",
+        "2. Prediction of the externalizing factor from EEG (a mental-health-related construct representing a common dimension of psychopathology across disorders)",
+        "The final metric combined results from both tasks (30 % Task 1 + 70 % Task 2).",
+        "As winners, we were invited to have a spotlight talk at  NeurIPS 2025 in San Diego!",
+        "Though I have long experience in machine learning and brain data analysis, this was actually my first ever ML competition, and damn what an experience it\u2019s been! Throughout October, we dedicated nearly every day to this challenge: experimenting, analyzing, learning, and pushing boundaries. Our success wouldn\u2019t have been possible without the amazing balance of our team: from research depth to Kaggle-hardened competition strategy (including a great Kaggle master among us).",
+        "So, seems like now I'm going to the U.S. again (third time this year and second time this month). So after using all those lagged correlation features, I guess it\u2019s only fair I\u2019m gonna get lots of jet lag myself!"
+      ],
+      "image": "/misc/neurips0.png",
+      "tags": [
+        "EEG",
+        "NeurIPS 2025",
+        "Competition",
+        "ML",
+        "MBZUAI"
+      ],
+      "repo": "https://github.com/sneddy/neurosned"
+    },
+    {
+      "id": "grace-hopper-2025",
+      "title": "Grace Hopper Celebration, Chicago",
+      "date": "November 6, 2025",
+      "excerpt": "Representing MBZUAI at Grace Hopper Celebration in Chicago\u2014networking, personal stories, and a massive gathering of women in tech.",
+      "content": [
+        "This week I\u2019ve been spending at Grace Hopper Celebration in Chicago, representing MBZUAI (Mohamed bin Zayed University of Artificial Intelligence).",
+        "It\u2019s been a pleasure to attend this huge event and connect with so many inspiring tech leaders. This conference was quite different from those which I usually attend. It was more about networking and personal stories, rather than specific research topics. That was very unusual and exciting. And damn this conference was HUUUGE! The whole building of Chicago\u2019s McCromic\u2019s place was full with female specialists from tech. Going from one session to another might have taken like 20 minutes! It was huge.",
+        "Chicago itself has been an amazing place to visit. Beautiful architecture, amazing views of Michigan Lake, dip dish pizza and so much more! Not always feeling safe on those noisy streets, but it was quite fun!",
+        "Many thanks to MBZUAI for this opportunity!"
+      ],
+      "image": "/misc/ghc2025.jpeg",
+      "tags": [
+        "Grace Hopper Celebration",
+        "Chicago",
+        "MBZUAI",
+        "Networking",
+        "Women in Tech"
+      ]
+    },
+    {
+      "id": "ai-the-good-the-bad-and-the-game-changer",
+      "title": "AI: The Good, The Bad, and the Game-Changer",
+      "date": "August 8, 2025",
+      "excerpt": "A new book of essays from 25 AI specialists is out. My chapter \u201cTraining AI to Teach Humanity\u201d shares why AI in education matters and who it should serve.",
+      "content": [
+        "Excited to share that a book \"AI: The Good, The Bad, and the Game-Changer\" is now out! It is a book comprised of essays from 25 AI enthusiasts and specialists, including me!",
+        "The essays examine how AI is reshaping different areas, such as healthcare, education, media and business. My essay \u201cTraining AI to Teach Humanity\u201d dives into my vision of AI in education:",
+        "\u2022 The huge benefits it can bring, especially for countries like Kazakhstan, where access to high-quality educational resources in the native language is still very limited.",
+        "\u2022 The risks we can\u2019t ignore \u2014 and why the real danger isn\u2019t AI itself, but who defines its purpose, whose values it encodes, and who truly benefits from it.",
+        "The book can be downloaded here."
+      ],
+      "tags": [
+        "Book",
+        "AI",
+        "Education",
+        "Ethics",
+        "Essay"
+      ],
+      "link": "https://basira-lab.com/ai-the-good-the-bad-and-the-game-changer/"
+    },
+    {
+      "id": "dsml-meetup-2025",
+      "title": "DSML Meetup 2025: Industry vs Academia",
+      "date": "July, 2025",
+      "excerpt": "In this talk I unpack the differences between ML industry and academia, and why I pursued a PhD after serving as Head of ML & AI and CTO.",
+      "content": [
+        "My talk at DSML Meetup is out! I usually get asked what is the difference between ML industry and academia, and why I decided to continue my academic career with Head of ML & AI and CTO experience.",
+        "In this talk I highlight the specifics of both sides, covering advantages and drawbacks: financial aspects, personal branding, and how problem-solving approaches differ.",
+        "I hope it will be useful for those who can\u2019t decide whether to go for a PhD or focus on building a career in industry."
+      ],
+      "videoId": "BxG9Aex1P38",
+      "tags": [
+        "DSML",
+        "Career",
+        "Industry vs Academia",
+        "PhD",
+        "Talk"
+      ]
+    },
+    {
+      "id": "cra-wp-2025",
+      "title": "CRA-WP 2025, Denver, Colorado",
+      "date": "April 7, 2025",
+      "excerpt": "Poster on uncovering causal relations in Alzheimer\u2019s progression with gene expression data at CRA-WP Conference & Workshop in Denver.",
+      "content": [
+        "Earlier in April, I had an opportunity to attend CRA-WP Conference & Workshop in Denver, Colorado, where I presented my poster on uncovering causal relations in Alzheimer\u2019s disease progression using gene expression data.",
+        "It was a real adventure \u2014 we flew over 30 hours from Abu-Dhabi to get there! But it was absolutely worth it. I had a chance to attend inspiring talks, meet new people, and get to know better my peers from MBZUAI.",
+        "As someone still new to the field of causality, I felt not that confident to present my preliminary results. But to my surprise, many attendees from top-tier institutions showed genuine interest in my research, asked interesting questions, and engaged in discussions. That encouragement means a lot.",
+        "Grateful for the experience \u2014 and even more motivated to keep researching!",
+        "hashtag#CRA hashtag#GC2025"
+      ],
+      "image": "/misc/CRA2025.jpeg",
+      "tags": [
+        "CRA-WP",
+        "Causality",
+        "Alzheimer\u2019s",
+        "Research",
+        "Conference"
+      ]
+    },
+    {
       "id": "international-womens-day-2025",
       "title": "International Women's Day post",
       "date": "March 8, 2025",
       "excerpt": "There has been a lot of discussion about what it's like to be a woman in science, engineering, or any other field. We are taught sciences, engineering or whatever. But no one teaches us how to be a woman.",
       "content": [
         "There has been a lot of discussion about what it's like to be a woman in science, engineering, or any other field. We are taught sciences, engineering or whatever. But no one teaches us how to be a woman. And that, in itself, isn't easy, especially for those of us with a Central Asian background.",
-        "As a woman from Kazakhstan, I see the constant pressure women endure in my country. Women in high positions, with successful careers and great incomes, are constantly met with comments like, \"<i>When are you going to get married?</i>\" or \"<i>Look at your classmate—she already has three kids, while you're just living for your own passion.</i>\"",
-        "And what about those who choose to prioritize their family over their career? They don't escape the scrutiny either. Instead, they hear remarks about how others manage to balance both, how some look as youthful in their 40s as they did in their 20s. \"<i>Why are you tired? You've never worked a day in your life—just sitting at home with the kids.</i>\"",
+        "As a woman from Kazakhstan, I see the constant pressure women endure in my country. Women in high positions, with successful careers and great incomes, are constantly met with comments like, \"<i>When are you going to get married?</i>\" or \"<i>Look at your classmate\u2014she already has three kids, while you're just living for your own passion.</i>\"",
+        "And what about those who choose to prioritize their family over their career? They don't escape the scrutiny either. Instead, they hear remarks about how others manage to balance both, how some look as youthful in their 40s as they did in their 20s. \"<i>Why are you tired? You've never worked a day in your life\u2014just sitting at home with the kids.</i>\"",
         "So, as when highlighting the achievements of one woman, let's not diminish the accomplishments of another. Every woman faces struggles that are left outside of the glamorous women's empowerment conferences or mediocre feminist-themed movies.",
-        "Happy International Women's Day, ladies! 🌷 Let's remember - we are all humans first all… and then women."
+        "Happy International Women's Day, ladies! \ud83c\udf37 Let's remember - we are all humans first all\u2026 and then women."
       ],
       "videoId": "zlQGjzqTmF8",
-      "tags": ["Women in Science", "International Women's Day", "Gender Equality", "Personal Reflection"]
+      "tags": [
+        "Women in Science",
+        "International Women's Day",
+        "Gender Equality",
+        "Personal Reflection"
+      ]
     },
     {
       "id": "thoughts-on-science-in-kazakhstan",
@@ -35,7 +146,12 @@
         "linkedin": "https://www.linkedin.com/posts/ayana-mussabayeva_%D0%B0%D1%8F%D0%BD%D0%B0-%D0%BC%D1%83%D1%81%D0%B0%D0%B1%D0%B0%D0%B5%D0%B2%D0%B0-%D0%BE-%D0%BA%D0%B0%D1%80%D1%8C%D0%B5%D1%80%D0%B5-%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0-activity-7300463091308228608-124Y",
         "weproject": "https://weproject.media/articles/detail/ayana-musabaeva-o-karere-prikladnogo-matematika-v-abu-dabi-i-issledovaniyakh-v-sfere-obrabotki-danny/"
       },
-      "tags": ["Science", "Kazakhstan", "Research", "Technology"]
+      "tags": [
+        "Science",
+        "Kazakhstan",
+        "Research",
+        "Technology"
+      ]
     },
     {
       "id": "joining-mbzuai",
@@ -49,8 +165,13 @@
         "It is such a blessing to be surrounded by people who are striving to knowledge and open to new ideas. And no matter how my path go further, I am already happy for just being surrounded by amazing people. Cause that's what really matters, innit?"
       ],
       "videoId": "OAyMjAEbps0",
-      "tags": ["Education", "PhD", "MBZUAI", "Career Change", "Personal Growth"]
+      "tags": [
+        "Education",
+        "PhD",
+        "MBZUAI",
+        "Career Change",
+        "Personal Growth"
+      ]
     }
   ]
 }
-

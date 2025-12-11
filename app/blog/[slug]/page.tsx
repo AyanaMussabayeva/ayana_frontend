@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, ArrowLeft, ExternalLink } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import blogData from "../../../locales/en/blog.json"
 
@@ -46,6 +47,45 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           </div>
 
+          {post.image && (
+            <div className="overflow-hidden rounded-lg border border-border/60">
+              <Image
+                src={post.image}
+                alt={post.title}
+                width={1200}
+                height={675}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          )}
+
+          {post.link && (
+            <p className="text-sm">
+              The book can be downloaded{" "}
+              <Link href={post.link} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">
+                here
+              </Link>
+              .
+            </p>
+          )}
+
+          {post.repo && (
+            <Card className="p-4">
+              <div className="flex items-center justify-between gap-3">
+                <div className="space-y-1">
+                  <p className="font-medium">Repository</p>
+                  <p className="text-sm text-muted-foreground break-all">{post.repo}</p>
+                </div>
+                <Button asChild>
+                  <Link href={post.repo} target="_blank" rel="noopener noreferrer">
+                    View Repo
+                  </Link>
+                </Button>
+              </div>
+            </Card>
+          )}
+
           <div className="prose prose-neutral dark:prose-invert max-w-none">
             {post.content.map((paragraph, index) => (
               <p key={index} className="mb-4">
@@ -88,4 +128,3 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     </div>
   )
 }
-
