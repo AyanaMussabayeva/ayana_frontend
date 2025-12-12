@@ -1,7 +1,8 @@
 import type React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, BookOpen, Code, Headphones, Mic, User, FileText } from "lucide-react"
+import { ArrowRight, BookOpen, Code, Headphones, Mic, User, FileText, Send } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar } from "lucide-react"
@@ -58,22 +59,77 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-[calc(100vh-4rem)]">
       {/* Hero Section */}
-      <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center text-center space-y-4">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{homeData.hero.title}</h1>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">{homeData.hero.subtitle}</p>
+      <section className="py-14 md:py-16 bg-gradient-to-b from-muted/40 via-background to-background relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(80,129,251,0.12),_transparent_32%),radial-gradient(circle_at_25%_40%,_rgba(236,81,171,0.12),_transparent_28%),radial-gradient(circle_at_70%_30%,_rgba(0,181,201,0.14),_transparent_30%),radial-gradient(circle_at_80%_75%,_rgba(246,237,60,0.08),_transparent_26%)]" />
+        {/* Floating animated dots */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <span
+            className="absolute h-3 w-3 rounded-full bg-primary/70 blur-sm animate-jelly left-[20%] top-[25%]"
+            style={{ animationDelay: "0s", animationDuration: "14s" }}
+          />
+          <span
+            className="absolute h-2 w-2 rounded-full bg-fuchsia-400/80 blur-sm animate-jelly left-[70%] top-[35%]"
+            style={{ animationDelay: "2s", animationDuration: "16s" }}
+          />
+          <span
+            className="absolute h-2.5 w-2.5 rounded-full bg-cyan-400/80 blur-sm animate-jelly left-[45%] top-[60%]"
+            style={{ animationDelay: "4s", animationDuration: "18s" }}
+          />
+          <span
+            className="absolute h-3 w-3 rounded-full bg-amber-300/70 blur-sm animate-jelly left-[15%] top-[70%]"
+            style={{ animationDelay: "6s", animationDuration: "20s" }}
+          />
+          <span
+            className="absolute h-2 w-2 rounded-full bg-emerald-300/70 blur-sm animate-jelly left-[60%] top-[15%]"
+            style={{ animationDelay: "8s", animationDuration: "22s" }}
+          />
+        </div>
+        <div className="container relative px-4 md:px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            <div className="relative w-full max-w-lg md:max-w-md flex justify-center">
+              <div className="absolute -inset-6 bg-gradient-to-br from-primary/25 via-fuchsia-500/15 to-cyan-400/15 blur-3xl rounded-full" />
+              <div className="relative overflow-hidden rounded-full border border-border/60 shadow-xl w-64 h-64 md:w-72 md:h-72">
+                <Image
+                  src="/misc/ayana.jpg"
+                  alt="Ayana Mussabayeva"
+                  width={576}
+                  height={576}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
             </div>
-            <div className="space-x-4">
-              <Button asChild>
-                <Link href="/about">
-                  {homeData.hero.buttons.viewResume} <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button variant="outline" asChild>
-                <Link href="/research">{homeData.hero.buttons.researchWork}</Link>
-              </Button>
+            <div className="flex-1 space-y-5 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                <span className="inline-block h-2 w-2 rounded-full bg-primary"></span>
+                Welcome to my site
+              </div>
+              <div className="space-y-3">
+                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+                  Hi! I'm Ayana Mussabayeva.
+                </h1>
+                <p className="text-muted-foreground text-lg max-w-2xl">
+                  This is my personal website ayana.best — I am not the best, but it was the cheapest available domain,
+                  and it's kinda fun! I am an AI/ML enthusiast and researcher. When my work performance is low, I go
+                  perform as stand up comedian, humiliate myself and go back to work!
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                <Button asChild>
+                  <Link href="/careers">
+                    View careers <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button variant="outline" asChild>
+                  <Link href="/research">Research work</Link>
+                </Button>
+                <Button variant="secondary" asChild>
+                  <Link href="https://t.me/ayana_mussabayeva" target="_blank" rel="noopener noreferrer">
+                    <Send className="mr-2 h-4 w-4" />
+                    Telegram
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -279,4 +335,3 @@ export default function Home() {
     </div>
   )
 }
-

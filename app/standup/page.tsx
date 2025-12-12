@@ -288,6 +288,66 @@ export default function StandupPage() {
             <h2 className="text-2xl font-bold mb-6">Featured Shows</h2>
             {/* Use grid for responsive layout - single column on lg screens, 2 columns on smaller screens */}
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-6">
+              {/* Dubai Comedy Fest */}
+              <div
+                className="bg-card border rounded-lg overflow-hidden hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer aspect-square"
+                onClick={() => openImageModal("/misc/dubaicomedyfest.jpeg", "Dubai Comedy Fest")}
+              >
+                <div className="relative pt-[60%] overflow-hidden">
+                  <Image
+                    src="/misc/dubaicomedyfest.jpeg"
+                    alt="Dubai Comedy Fest"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 300px"
+                    className="absolute inset-0 object-cover object-top bg-muted/10"
+                    priority
+                  />
+                </div>
+                <div className="p-3 flex flex-col justify-between" style={{ height: "40%" }}>
+                  <h3 className="text-sm font-bold line-clamp-2">Dubai Comedy Fest</h3>
+                  <div className="space-y-1 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-3 w-3 flex-shrink-0" />
+                      <span className="truncate">October 9, 2025</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <MapPin className="h-3 w-3 flex-shrink-0" />
+                      <span className="truncate">New Covent Garden, Mall of Emirates, Dubai</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* English Standup 2025 */}
+              <div
+                className="bg-card border rounded-lg overflow-hidden hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer aspect-square"
+                onClick={() => openImageModal("/misc/englishstandup2025.jpeg", "ENGLISH STANDUP 2025")}
+              >
+                <div className="relative pt-[60%] overflow-hidden">
+                  <Image
+                    src="/misc/englishstandup2025.jpeg"
+                    alt="ENGLISH STANDUP 2025"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 300px"
+                    className="absolute inset-0 object-cover object-center bg-muted/10"
+                    priority
+                  />
+                </div>
+                <div className="p-3 flex flex-col justify-between" style={{ height: "40%" }}>
+                  <h3 className="text-sm font-bold line-clamp-2">ENGLISH STANDUP with Ayana Mussabayeva, Dosmukhamed Ali and Daniyar Alshinov</h3>
+                  <div className="space-y-1 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-3 w-3 flex-shrink-0" />
+                      <span className="truncate">July 2, 19:00</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <MapPin className="h-3 w-3 flex-shrink-0" />
+                      <span className="truncate">Almaty, Kabanbay Batyr, 71 (Almaty Central Stand Up Club)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Around the World Show */}
               <div
                 className="bg-card border rounded-lg overflow-hidden hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer aspect-square"
@@ -528,4 +588,3 @@ function VenueCard({ name, location, description }: VenueCardProps) {
     </div>
   )
 }
-
