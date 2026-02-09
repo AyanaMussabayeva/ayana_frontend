@@ -6,6 +6,24 @@
   "publishedOn": "Published on",
   "posts": [
     {
+      "id": "neurips-2025-eeg-oral-presentation",
+      "title": "NeurIPS 2025: oral presentation on Foundation of EEG challenge solution",
+      "date": "December 2025",
+      "excerpt": "Our spotlight talk at NeurIPS 2025 in San Diego presenting the winning solution for the EEG Foundation Challenge.",
+      "content": [
+        "Following our first-place finish in the EEG Foundation Challenge at NeurIPS Competition Track 2025, our MBZUAI team was invited to present our solution at NeurIPS 2025 in San Diego.",
+        "Here is our oral presentation on the Foundation of EEG challenge solution."
+      ],
+      "videoId": "QsvfNpLECKY",
+      "tags": [
+        "EEG",
+        "NeurIPS 2025",
+        "Competition",
+        "Oral Presentation",
+        "MBZUAI"
+      ]
+    },
+    {
       "id": "eeg-foundation-challenge-2025",
       "title": "EEG Foundation Challenge win!",
       "date": "November 17, 2025",

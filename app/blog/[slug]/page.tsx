@@ -5,6 +5,7 @@ import { Calendar, ArrowLeft, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
+import { YouTubeEmbed } from "@/app/components/youtube-embed"
 import blogData from "../../../locales/en/blog.json"
 
 interface BlogPostPageProps {
@@ -46,6 +47,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               ))}
             </div>
           </div>
+
+          {post.videoId && (
+            <div className="overflow-hidden rounded-lg border border-border/60">
+              <YouTubeEmbed videoId={post.videoId} title={post.title} />
+            </div>
+          )}
 
           {post.image && (
             <div className="overflow-hidden rounded-lg border border-border/60">
