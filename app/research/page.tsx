@@ -11,6 +11,8 @@ import { YouTubeEmbed } from "@/app/components/youtube-embed"
 import Image from "next/image"
 
 const research = i18n.getResourceBundle("en", "research")
+type Publication = (typeof research.publications.items)[number]
+type Interest = (typeof research.interests.items)[number]
 
 export default function ResearchPage() {
   // State to track which publications are expanded
@@ -28,7 +30,7 @@ export default function ResearchPage() {
     <div className="container py-12">
       <div className="max-w-3xl mx-auto space-y-8">
         <div className="space-y-4">
-          <h1 className="text-3xl font-bold">Best of my Research</h1>
+          <h1 className="text-3xl font-bold">My Research</h1>
           <p className="text-muted-foreground">
             My research focuses on causal representation learning, signal processing and machine learning algorithms for
             different applications, mainly medicine, neuroscience and brain-computer interfaces.
@@ -80,7 +82,7 @@ export default function ResearchPage() {
         <section>
           <h2 className="text-2xl font-bold mb-6">{research.publications.title}</h2>
           <div className="space-y-6">
-            {research.publications.items.map((publication, index) => (
+            {research.publications.items.map((publication: Publication, index: number) => (
               <div key={index} className="relative rounded-lg overflow-hidden">
                 <div className="absolute inset-0 rounded-lg overflow-hidden z-10">
                   {/* Top border */}
@@ -163,7 +165,7 @@ export default function ResearchPage() {
 
                       {/* Tags */}
                       <div className="flex flex-wrap gap-2">
-                        {publication.tags.map((tag) => (
+                        {publication.tags.map((tag: string) => (
                           <Badge key={tag} variant="secondary">
                             {tag}
                           </Badge>
@@ -171,16 +173,18 @@ export default function ResearchPage() {
                       </div>
 
                       {/* View Publication Button */}
-                      <Button variant="outline" size="sm" asChild>
-                        <a
-                          href={publication.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center"
-                        >
-                          View Publication <ExternalLink className="ml-2 h-3 w-3" />
-                        </a>
-                      </Button>
+                      {publication.link && (
+                        <Button variant="outline" size="sm" asChild>
+                          <a
+                            href={publication.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center"
+                          >
+                            View Publication <ExternalLink className="ml-2 h-3 w-3" />
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
@@ -192,7 +196,7 @@ export default function ResearchPage() {
         <section>
           <h2 className="text-2xl font-bold mb-6">{research.interests.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {research.interests.items.map((interest, index) => (
+            {research.interests.items.map((interest: Interest, index: number) => (
               <div key={index} className="relative rounded-lg overflow-hidden">
                 <div className="absolute inset-0 rounded-lg overflow-hidden z-10">
                   {/* Top border */}
@@ -220,4 +224,3 @@ export default function ResearchPage() {
     </div>
   )
 }
-

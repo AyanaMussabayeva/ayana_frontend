@@ -5,6 +5,15 @@
     "title": "Publications",
     "items": [
       {
+        "title": "Stereotype Bias in a Bilingual Setting: A Culturally Grounded Evaluation in Kazakhstan",
+        "authors": "Nurkhan Laiyk, Daniil Orel, Ayana Mussabayeva, Maiya Goloburda, Kamila Kuishibekova, Liya Goloburda, Diana Turmakhan, Preslav Nakov, Yuxia Wang, Fajri Koto",
+        "conference": "ACL 2026 Main Conference",
+        "year": "2026",
+        "description": "Accepted to the 64th Annual Meeting of the Association for Computational Linguistics (ACL 2026 Main Conference), this paper studies stereotype bias in a bilingual setting through a culturally grounded evaluation focused on Kazakhstan.",
+        "citation": "N. Laiyk, D. Orel, A. Mussabayeva, M. Goloburda, K. Kuishibekova, L. Goloburda, D. Turmakhan, P. Nakov, Y. Wang, F. Koto, \"Stereotype Bias in a Bilingual Setting: A Culturally Grounded Evaluation in Kazakhstan,\" accepted to the 64th Annual Meeting of the Association for Computational Linguistics (ACL 2026 Main Conference), San Diego, California, United States, July 2-7, 2026.",
+        "tags": ["ACL 2026", "Bias Evaluation", "Bilingual", "Kazakhstan", "NLP"]
+      },
+      {
         "title": "Subject-independent P300 Speller Classification using Time-Frequency Representation and Double Input CNN with Feature Concatenation",
         "authors": "Zangar Ermaganbet, Ayana Mussabayeva, Muhammad Tahir Akhtar, Prashant Kumar Jamwal",
         "conference": "DSP 2023",
@@ -84,4 +93,3 @@
     ]
   }
 }
-
