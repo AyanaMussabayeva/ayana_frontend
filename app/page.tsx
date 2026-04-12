@@ -2,10 +2,10 @@ import type React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, BookOpen, Code, Headphones, Mic, User, FileText, Send } from "lucide-react"
+import { ArrowRight, BookOpen, Code, Headphones, Mic, User, FileText, Send, Calendar } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar } from "lucide-react"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import homeData from "../locales/en/home.json"
 import blogData from "../locales/en/blog.json"
 
@@ -37,10 +37,11 @@ function QuickLinkCard({ icon, title, description, href }: QuickLinkCardProps) {
 }
 
 export default function Home() {
-  // Add blog to quick links but remove About Me
-  const quickLinks = homeData.quickLinks.cards.filter((card) => card.title !== "About Me")
+  const quickLinks = homeData.quickLinks.cards
+    .filter((card) => card.title !== "About Me")
+    .map((card) => ({ ...card }))
+  const featuredPosts = blogData.posts.slice(0, 3)
 
-  // Insert blog after research
   quickLinks.splice(2, 0, {
     title: "Blog",
     description: "Thoughts and insights on AI, research, and technology",
@@ -136,6 +137,81 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Blog Posts Section */}
+      <section className="py-12 md:py-16 bg-muted/30">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center text-center space-y-4 mb-8">
+            <h2 className="text-2xl font-bold tracking-tighter">Featured Blog Posts</h2>
+            <p className="text-muted-foreground">Three recent posts from the blog</p>
+            <Button variant="outline" asChild>
+              <Link href="/blog">View all posts</Link>
+            </Button>
+          </div>
+
+          {featuredPosts.length > 0 && (
+            <div className="mx-auto max-w-6xl px-4 md:px-12">
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: featuredPosts.length > 3,
+                }}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {featuredPosts.map((post, index) => (
+                    <CarouselItem key={post.id} className="md:basis-1/2 xl:basis-1/3">
+                      <div className="h-full relative rounded-lg overflow-hidden">
+                        <div className="absolute inset-0 rounded-lg overflow-hidden z-10">
+                          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#F6ED3C] via-[#00B5C9] to-[#EC51AB] animate-gradient-x"></div>
+                          <div className="absolute top-0 left-0 bottom-0 w-[2px] bg-gradient-to-b from-[#F6ED3C] via-[#00B5C9] to-[#EC51AB] animate-gradient-y"></div>
+                          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#EC51AB] via-[#00B5C9] to-[#F6ED3C] animate-gradient-x"></div>
+                          <div className="absolute top-0 right-0 bottom-0 w-[2px] bg-gradient-to-b from-[#F6ED3C] via-[#EC51AB] to-[#00B5C9] animate-gradient-y"></div>
+                        </div>
+                        <Card className="relative z-0 flex h-full flex-col overflow-hidden">
+                          <CardHeader className="space-y-3">
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <Calendar className="h-4 w-4" />
+                              <span>{post.date}</span>
+                            </div>
+                            <CardTitle className="text-xl leading-snug">
+                              <Link href={`/blog/${post.id}`} className="hover:text-primary transition-colors">
+                                {post.title}
+                              </Link>
+                            </CardTitle>
+                            <CardDescription>
+                              {index === 0 ? "Newest post" : "Featured from the blog"}
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent className="flex-1 space-y-4">
+                            <p className="text-muted-foreground">{post.excerpt}</p>
+                            <div className="flex flex-wrap gap-2">
+                              {post.tags.slice(0, 4).map((tag) => (
+                                <Badge key={tag} variant="secondary">
+                                  {tag}
+                                </Badge>
+                              ))}
+                            </div>
+                          </CardContent>
+                          <CardFooter>
+                            <Button asChild>
+                              <Link href={`/blog/${post.id}`}>
+                                {blogData.readMore} <ArrowRight className="ml-2 h-4 w-4" />
+                              </Link>
+                            </Button>
+                          </CardFooter>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="-left-4 md:-left-6" />
+                <CarouselNext className="-right-4 md:-right-6" />
+              </Carousel>
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* Quick Links Section */}
       <section className="py-12 md:py-16 bg-background">
         <div className="container px-4 md:px-6">
@@ -152,7 +228,6 @@ export default function Home() {
                 <User key="user2" className="h-6 w-6" />,
               ]
 
-              // Alternate gradient colors based on index
               const gradientClasses = [
                 {
                   top: "from-[#F6ED3C] via-[#00B5C9] to-[#EC51AB]",
@@ -179,19 +254,15 @@ export default function Home() {
               return (
                 <div key={index} className="relative rounded-lg overflow-hidden">
                   <div className="absolute inset-0 rounded-lg overflow-hidden z-10">
-                    {/* Top border */}
                     <div
                       className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${gradientSet.top} animate-gradient-x`}
                     ></div>
-                    {/* Left border */}
                     <div
                       className={`absolute top-0 left-0 bottom-0 w-[2px] bg-gradient-to-b ${gradientSet.left} animate-gradient-y`}
                     ></div>
-                    {/* Bottom border */}
                     <div
                       className={`absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r ${gradientSet.bottom} animate-gradient-x`}
                     ></div>
-                    {/* Right border */}
                     <div
                       className={`absolute top-0 right-0 bottom-0 w-[2px] bg-gradient-to-b ${gradientSet.right} animate-gradient-y`}
                     ></div>
@@ -207,73 +278,6 @@ export default function Home() {
               )
             })}
           </div>
-        </div>
-      </section>
-
-      {/* Latest Blog Post Section */}
-      <section className="py-12 md:py-16 bg-muted/30">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center text-center space-y-4 mb-8">
-            <h2 className="text-2xl font-bold tracking-tighter">Latest Blog Post</h2>
-            <p className="text-muted-foreground">Read my latest thoughts and insights</p>
-          </div>
-
-          {blogData.posts.length > 0 && (
-            <div className="max-w-3xl mx-auto relative rounded-lg overflow-hidden">
-              <div className="absolute inset-0 rounded-lg overflow-hidden z-10">
-                {/* Top border */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#F6ED3C] via-[#00B5C9] to-[#EC51AB] animate-gradient-x"></div>
-                {/* Left border */}
-                <div className="absolute top-0 left-0 bottom-0 w-[2px] bg-gradient-to-b from-[#F6ED3C] via-[#00B5C9] to-[#EC51AB] animate-gradient-y"></div>
-                {/* Bottom border */}
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#EC51AB] via-[#00B5C9] to-[#F6ED3C] animate-gradient-x"></div>
-                {/* Right border */}
-                <div className="absolute top-0 right-0 bottom-0 w-[2px] bg-gradient-to-b from-[#F6ED3C] via-[#EC51AB] to-[#00B5C9] animate-gradient-y"></div>
-              </div>
-              <Card className="overflow-hidden relative z-0">
-                <CardHeader>
-                  <CardTitle className="text-2xl">
-                    <Link href={`/blog/${blogData.posts[0].id}`} className="hover:text-primary transition-colors">
-                      {blogData.posts[0].title}
-                    </Link>
-                  </CardTitle>
-                  <CardDescription className="flex items-center gap-1">
-                    <Calendar className="h-4 w-4" /> {blogData.posts[0].date}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {blogData.posts[0].videoId && (
-                    <div className="mb-4 aspect-video">
-                      <iframe
-                        width="560"
-                        height="315"
-                        src={`https://www.youtube.com/embed/${blogData.posts[0].videoId}?si=S_u16WWt37xq-gu1`}
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        allowFullScreen
-                        className="w-full h-full rounded-lg"
-                      ></iframe>
-                    </div>
-                  )}
-                  <p className="text-muted-foreground mb-4">{blogData.posts[0].excerpt}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {blogData.posts[0].tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button asChild>
-                    <Link href={`/blog/${blogData.posts[0].id}`}>{blogData.readMore}</Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </div>
-          )}
         </div>
       </section>
 

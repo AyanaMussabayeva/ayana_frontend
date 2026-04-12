@@ -6,6 +6,75 @@
   "publishedOn": "Published on",
   "articles": [
     {
+      "id": "digital-business-ai-reading-thoughts",
+      "title": "A Kazakh Researcher Is Teaching AI to Read Thoughts: Ayana Mussabayeva on Brain Signals, NeurIPS, and Applied AI",
+      "date": "March 16, 2026",
+      "publication": "Digital Business",
+      "excerpt": "This page presents an English adaptation of Ayana Mussabayeva's interview originally published in Russian by Digital Business. In it, she reflects on her path into machine learning, her research on brain-signal interpretation at MBZUAI, her team's NeurIPS challenge win, and applied AI projects in Kazakhstan.",
+      "images": [
+        "/misc/digital-business-neurips-poster.jpg",
+        "/misc/digital-business-neurips-panel.jpg"
+      ],
+      "content": [
+        {
+          "type": "section",
+          "title": "How She Entered AI Research",
+          "paragraphs": [
+            "Ayana traces her interest in machine learning back to her undergraduate years at KBTU, when even simple handwritten-digit recognition felt almost magical. That curiosity pushed her to understand how mathematical operations become practical systems that solve real-world problems.",
+            "After completing a master's degree in electrical engineering at Nazarbayev University and another degree in mathematics at the University of Manchester, she moved into industry and led ML and AI work at a startup in Dubai. Applying to the PhD program at Mohamed bin Zayed University of Artificial Intelligence was initially a spontaneous decision, but it became a way to return to the academic environment she had been missing."
+          ]
+        },
+        {
+          "type": "section",
+          "title": "Research on Brain Signals",
+          "paragraphs": [
+            "At MBZUAI, Ayana works on research at the intersection of artificial intelligence and neuroscience. Her focus is on building AI models and methods that can better interpret brain signals and make those signals more understandable and usable.",
+            "She explains that researchers can already approximate text or images from brain activity in some experimental settings, but the field is still far from reliable mind reading. Brain signals vary heavily from person to person and even within the same person over time, which makes general-purpose models difficult to build. Her work is aimed at moving closer to interfaces where people can interact with AI through intent rather than speech or typing.",
+            "One example she mentions is research on detecting the P300 signal, a brain response to a stimulus that can be used in spelling systems controlled by brain activity."
+          ]
+        },
+        {
+          "type": "section",
+          "title": "Winning at NeurIPS",
+          "paragraphs": [
+            "A major validation of that research direction came through the EEG Foundation Challenge held as part of NeurIPS 2025. The task was to build an AI model within one month that could learn from EEG recordings and recover meaningful individual characteristics from short recordings.",
+            "The competition was demanding not only because the underlying neuroscience problem was difficult, but also because many competing teams came from specialized neurotechnology labs and large technology organizations. Despite having a team of only three people, Ayana and her collaborators outperformed larger groups with more extensive compute resources.",
+            "According to the interview, 1,220 teams from around the world participated and submitted 8,622 solutions. Their first-place result showed that careful modeling and problem framing could outperform scale alone."
+          ]
+        },
+        {
+          "type": "section",
+          "title": "Applied AI in Schools",
+          "paragraphs": [
+            "Alongside academic research, Ayana also works on applied AI products. As CTO of the Kazakhstani company QData, she helps build a platform that analyzes video streams in real time.",
+            "One of the platform's current uses is school safety. The system is designed to flag dangerous situations such as fights, injuries, or unauthorized people entering a school environment. A pilot has already been running in schools in Astana, where the team says the system helped identify conflicts early, challenge false accusations, and give administrators better information about what actually happened."
+          ]
+        },
+        {
+          "type": "section",
+          "title": "Building the DSML Community",
+          "paragraphs": [
+            "Ayana also contributes to DSML Kazakhstan, a community for data science and machine learning practitioners that has grown to more than 10,000 members. In the interview, she emphasizes that the community was built around people who wanted to understand AI deeply rather than simply chase hype.",
+            "DSML organizes seminars, conferences, and educational initiatives for both school students and experienced specialists. She highlights the group's noncommercial ethos and its goal of widening the horizon for young people in Kazakhstan who want to do ambitious technical work instead of stopping at surface-level tool usage."
+          ]
+        },
+        {
+          "type": "section",
+          "title": "What Comes Next",
+          "paragraphs": [
+            "Ayana sees brain-computer interfaces as a serious long-term direction, even if the field is still limited by hardware cost, technical complexity, and safety concerns. She does not treat dystopian scenarios as an immediate concern; instead, she sees the present challenge as making these systems technically viable in the first place.",
+            "Looking ahead, she says she would like to build her own AI lab after completing her doctorate. Her longer-term ambition is to unite strong researchers and engineers around projects that are socially important and technically difficult enough to seem unrealistic at first."
+          ]
+        }
+      ],
+      "source": {
+        "url": "https://digitalbusiness.kz/2026-03-16/kazahstanka-uchit-iskusstvenniy-intellekt-chitat-misli-vot-zachem-eto-nuzhno/",
+        "name": "Digital Business",
+        "description": "Digital Business is a Kazakhstani publication focused on technology, startups, finance, and the regional innovation ecosystem."
+      },
+      "tags": ["AI", "Neuroscience", "Brain-Computer Interfaces", "NeurIPS", "Applied AI", "Kazakhstan"]
+    },
+    {
       "id": "applied-mathematician-career-in-abu-dhabi",
       "title": "Ayana Mussabayeva on Her Career as an Applied Mathematician in Abu Dhabi and Research in Data Processing",
       "date": "February 25, 2025",
@@ -110,4 +179,3 @@
     }
   ]
 }
-
