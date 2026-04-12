@@ -109,9 +109,10 @@ export default function Home() {
                   Hi! I'm Ayana Mussabayeva.
                 </h1>
                 <p className="text-muted-foreground text-lg max-w-2xl">
-                  This is my personal website ayana.best — I am not the best, but it was the cheapest available domain,
-                  and it's kinda fun! I am an AI/ML enthusiast and researcher. When my work performance is low, I go
-                  perform as stand up comedian, humiliate myself and go back to work!
+                  I'm an AI researcher interested in fundamental machine learning and its applications, especially in
+                  neuroscience. Alongside research, I&apos;ve spent part of my career building teams and leading AI
+                  work as Head of AI/ML and CTO, and I&apos;m a co-founder of DSML.KZ, the largest AI community in
+                  Central Asia. Welcome to my webpage!
                 </p>
               </div>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
