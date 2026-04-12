@@ -2,8 +2,8 @@ import type React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, BookOpen, Code, Headphones, Mic, User, FileText, Send, Calendar } from "lucide-react"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { ArrowRight, BookOpen, Code, Headphones, Mic, User, FileText, Send, Calendar, PlayCircle } from "lucide-react"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import homeData from "../locales/en/home.json"
@@ -34,6 +34,41 @@ function QuickLinkCard({ icon, title, description, href }: QuickLinkCardProps) {
       </div>
     </Link>
   )
+}
+
+function FeaturedPostMedia({ post }: { post: (typeof blogData.posts)[number] }) {
+  if (post.image) {
+    return (
+      <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+        <Image
+          src={post.image}
+          alt={post.title}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+          sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+        />
+      </div>
+    )
+  }
+
+  if (post.videoId) {
+    return (
+      <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+        <img
+          src={`https://img.youtube.com/vi/${post.videoId}/hqdefault.jpg`}
+          alt={post.title}
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
+        <div className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full bg-background/85 px-3 py-1.5 text-sm font-medium shadow-sm">
+          <PlayCircle className="h-4 w-4 text-primary" />
+          Video preview
+        </div>
+      </div>
+    )
+  }
+
+  return null
 }
 
 export default function Home() {
@@ -140,9 +175,7 @@ export default function Home() {
       {/* Featured Blog Posts Section */}
       <section className="py-12 md:py-16 bg-muted/30">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center text-center space-y-4 mb-8">
-            <h2 className="text-2xl font-bold tracking-tighter">Featured Blog Posts</h2>
-            <p className="text-muted-foreground">Three recent posts from the blog</p>
+          <div className="mb-8 flex justify-center md:justify-end">
             <Button variant="outline" asChild>
               <Link href="/blog">View all posts</Link>
             </Button>
@@ -158,7 +191,7 @@ export default function Home() {
                 className="w-full"
               >
                 <CarouselContent>
-                  {featuredPosts.map((post, index) => (
+                  {featuredPosts.map((post) => (
                     <CarouselItem key={post.id} className="md:basis-1/2 xl:basis-1/3">
                       <div className="h-full relative rounded-lg overflow-hidden">
                         <div className="absolute inset-0 rounded-lg overflow-hidden z-10">
@@ -167,8 +200,13 @@ export default function Home() {
                           <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#EC51AB] via-[#00B5C9] to-[#F6ED3C] animate-gradient-x"></div>
                           <div className="absolute top-0 right-0 bottom-0 w-[2px] bg-gradient-to-b from-[#F6ED3C] via-[#EC51AB] to-[#00B5C9] animate-gradient-y"></div>
                         </div>
-                        <Card className="relative z-0 flex h-full flex-col overflow-hidden">
-                          <CardHeader className="space-y-3">
+                        <Card className="group relative z-0 flex h-full flex-col overflow-hidden">
+                          {(post.image || post.videoId) && (
+                            <Link href={`/blog/${post.id}`} className="block">
+                              <FeaturedPostMedia post={post} />
+                            </Link>
+                          )}
+                          <CardHeader className="space-y-3 pb-4">
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
                               <Calendar className="h-4 w-4" />
                               <span>{post.date}</span>
@@ -178,9 +216,6 @@ export default function Home() {
                                 {post.title}
                               </Link>
                             </CardTitle>
-                            <CardDescription>
-                              {index === 0 ? "Newest post" : "Featured from the blog"}
-                            </CardDescription>
                           </CardHeader>
                           <CardContent className="flex-1 space-y-4">
                             <p className="text-muted-foreground">{post.excerpt}</p>
