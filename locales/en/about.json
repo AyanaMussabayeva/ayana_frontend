@@ -40,7 +40,7 @@
         },
         {
           "title": "Co-founder of DSML KZ",
-          "description": "Community of data scientists in Kazakhstan with over 7,000 members",
+          "description": "Community of data scientists in Kazakhstan with over 10,000 members",
           "link": "https://www.dsml.kz/",
           "logo": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dsml_logo-Tv9XHOxlcXSjEPGpM2btfQhncHUaM1.png",
           "linkType": "website"
@@ -61,9 +61,11 @@
         "period": "August 2025 - Present",
         "location": "Astana, Kazakhstan",
         "description": [
-          "Set technical vision and architected platform for real-time video processing and analytics for hazardous situations detection (physical aggression, injuries, fire/smoke, unauthorized people) and discipline monitoring (attendance tracking, school policies violations).",
-          "Led a cross-functional engineering team of ~10 specialists (ML, backend, frontend, DevOps, network & hardware engineering).",
-          "Pilot launch in two schools in Astana."
+          "Defined the company's technical strategy and led architecture of a real-time video analytics platform for school safety and operational monitoring.",
+          "Leading the development of computer vision capabilities for detecting physical aggression, injuries, fire and smoke, weapons, unauthorized access, attendance events, and policy violations.",
+          "Built and managed a cross-functional engineering team of 15+ specialists across ML, backend, frontend, DevOps, networking, and hardware.",
+          "Directed rollout of the platform to 10 schools in Astana.",
+          "Managed partner and client communication, translating operational needs into product and engineering priorities."
         ]
       },
       {

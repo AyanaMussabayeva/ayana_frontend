@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, ExternalLink, MessageSquare, ChevronUp, ChevronDown } from "lucide-react"
+import { Github, Linkedin, Mail, ExternalLink, MessageSquare, ChevronUp, ChevronDown, Download } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import i18n from "@/lib/i18n"
@@ -84,6 +84,12 @@ export default function AboutPage() {
                       {about.sidebar.contact.linkedin}
                     </Link>
                   </div>
+                  <Button asChild className="mt-4 w-full">
+                    <a href="/files/ayana-mussabayeva-cv.pdf" download="Ayana-Mussabayeva-CV.pdf">
+                      <Download className="mr-2 h-4 w-4" />
+                      Download CV
+                    </a>
+                  </Button>
                 </div>
 
                 <div>
