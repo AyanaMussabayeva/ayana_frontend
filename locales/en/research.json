@@ -5,6 +5,16 @@
     "title": "Publications",
     "items": [
       {
+        "title": "Behavioral Latency as Weak Event-Time Supervision for EEG Reaction-Time Decoding",
+        "authors": "Anuar Aimoldin, Ayana Mussabayeva, Yedige Mussabayev, Xue Liu, Kun Zhang",
+        "conference": "Neural Computation",
+        "year": "2026",
+        "description": "Accepted for publication in Neural Computation, this paper reformulates single-trial EEG reaction-time decoding as event-time posterior modeling, using behavioral latency as weak supervision for response-relevant neural dynamics.",
+        "citation": "A. Aimoldin, A. Mussabayeva, Y. Mussabayev, X. Liu, K. Zhang, \"Behavioral Latency as Weak Event-Time Supervision for EEG Reaction-Time Decoding,\" Neural Computation, accepted for publication, 2026. arXiv:2608.29428.",
+        "link": "https://arxiv.org/abs/2608.29428",
+        "tags": ["Neural Computation", "EEG", "Reaction Time", "Weak Supervision", "Event-Time Modeling"]
+      },
+      {
         "title": "Stereotype Bias in a Bilingual Setting: A Culturally Grounded Evaluation in Kazakhstan",
         "authors": "Nurkhan Laiyk, Daniil Orel, Ayana Mussabayeva, Maiya Goloburda, Kamila Kuishibekova, Liya Goloburda, Diana Turmakhan, Preslav Nakov, Yuxia Wang, Fajri Koto",
         "conference": "ACL 2026 Main Conference",
