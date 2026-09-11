@@ -87,9 +87,8 @@ export default async function OngoingResearchPage({ searchParams }: OngoingResea
           </p>
         </div>
         <section aria-label="Research projects">
-          <Link
+          <a
             href="/research/ongoing/source-localization"
-            prefetch={false}
             className="group relative block overflow-hidden rounded-xl border bg-card p-6 transition-colors hover:border-primary/60 hover:bg-muted/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:p-8"
           >
             <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#00B5C9] via-[#F6ED3C] to-[#EC51AB]" />
@@ -112,7 +111,7 @@ export default async function OngoingResearchPage({ searchParams }: OngoingResea
               Open project
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
             </div>
-          </Link>
+          </a>
         </section>
       </div>
     </div>
