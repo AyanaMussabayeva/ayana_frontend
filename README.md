@@ -30,6 +30,18 @@ pnpm build   # requires network to fetch the Inter font via next/font
 4) Set the production domain to `ayana.best` (already in use on the existing project).  
 5) Deploy; Vercel will build on every push to the default branch.
 
+## Public project pages
+
+The Behavioral Latency publication links to
+`/publications/behavioral-latency/index.html` through its `projectLink` in
+`locales/en/research.json`. The standalone page, interactive scripts, figures,
+paper PDF, BibTeX, and licensed icons live together in
+`public/publications/behavioral-latency/` and are served directly by Next.js.
+
+When replacing this bundle, keep its relative asset paths together, preserve the
+same-origin links back to `/research` and `/`, and keep the canonical and Open
+Graph URLs aligned with the public page address.
+
 ## Private ongoing research
 
 `/research/ongoing` displays a password form; authenticated visitors can open the

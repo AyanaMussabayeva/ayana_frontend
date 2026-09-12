@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#fbfcff">
+  <meta name="description" content="Can reaction time teach an EEG model where to look in time? Explore event-time posterior modeling, weak supervision, and tests of temporal localization. Accepted in Neural Computation.">
+  <meta property="og:title" content="Behavioral Latency as Weak Event-Time Supervision">
+  <meta property="og:description" content="From predicting reaction time to testing temporal evidence in EEG. A research project accepted for publication in Neural Computation.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ayana.best/publications/behavioral-latency/index.html">
+  <meta property="og:image" content="https://ayana.best/publications/behavioral-latency/assets/NECO-26-000-60R1-Figure-3.png">
+  <meta property="og:image:alt" content="EEG event-time modeling supervised by behavioral reaction time">
+  <link rel="canonical" href="https://ayana.best/publications/behavioral-latency/index.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <title>Behavioral Latency as Weak Event-Time Supervision | Ayana Mussabayeva</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="vendor/lucide.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the paper</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="back-link" href="/research"><i data-lucide="arrow-left" aria-hidden="true"></i><span>Back to publications</span></a>
+      <a class="wordmark" href="/">Ayana Mussabayeva<span> / Research</span></a>
+      <a class="header-paper" href="https://arxiv.org/abs/2608.29428">arXiv <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="reading-progress" aria-hidden="true"><span id="progress"></span></div>
+  </header>
+
+  <main id="main">
+    <section class="paper-masthead" aria-labelledby="paper-title">
+      <div class="masthead-inner">
+        <div class="publication-line"><span class="venue">Neural Computation</span><span>Accepted for publication &middot; 2026</span></div>
+        <h1 id="paper-title">Behavioral Latency as Weak Event-Time Supervision <em>for EEG Reaction-Time Decoding</em></h1>
+        <p class="standfirst">Reaction time tells us more than how fast someone responded. It can also help an EEG model learn <strong>where to look in time.</strong></p>
+        <p class="authors">Anuar Aimoldin<sup>*</sup>, <a href="/">Ayana Mussabayeva<sup>*</sup></a>, Yedige Mussabayev, Xue Liu, Kun Zhang</p>
+        <p class="affiliations">MBZUAI &middot; Hof University &middot; McGill University &middot; Carnegie Mellon University <span><sup>*</sup> Equal contribution</span></p>
+        <div class="resource-links">
+          <a class="button primary" href="assets/paper.pdf" target="_blank" rel="noopener"><i data-lucide="file-text" aria-hidden="true"></i>Read the paper</a>
+          <a class="button" href="https://arxiv.org/abs/2608.29428"><i data-lucide="arrow-up-right" aria-hidden="true"></i>arXiv</a>
+          <a class="button" href="https://github.com/sneddy/neurosned"><i data-lucide="code-xml" aria-hidden="true"></i>Code &amp; experiments</a>
+          <a class="button" href="#citation"><i data-lucide="quote" aria-hidden="true"></i>Cite</a>
+        </div>
+        <figure class="overview-figure">
+          <a class="figure-link" data-figure href="assets/NECO-26-000-60R1-Figure-3.png" aria-label="Enlarge the event-time modeling diagram">
+            <img src="assets/NECO-26-000-60R1-Figure-3.png" width="1648" height="624" alt="EEG enters an event-time model supervised by behavioral reaction time. The model outputs time-bin scores, which are read out as a posterior expectation to predict reaction time.">
+            <span class="expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+          </a>
+          <figcaption><span>Figure 3 &middot; The central idea</span>Learn a distribution over possible event times, then recover a scalar RT from its mean. Behavioral timing provides weak supervision; it is not a direct annotation of a neural event.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="article-layout">
+      <aside class="contents">
+        <nav aria-label="On this page"><p class="nav-label">On this page</p>
+          <a href="#question"><span>01</span>The question</a>
+          <a href="#formulation"><span>02</span>A posterior over time</a>
+          <a href="#objectives"><span>03</span>Ways to supervise</a>
+          <a href="#evidence"><span>04</span>Controlled evidence</a>
+          <a href="#geometry"><span>05</span>Beyond one number</a>
+          <a href="#shifts"><span>06</span>Shift the window</a>
+          <a href="#scope"><span>07</span>What this means</a>
+          <a href="#citation"><span>08</span>Paper &amp; resources</a>
+        </nav>
+        <a class="contents-paper" href="assets/paper.pdf">Full paper <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+      </aside>
+
+      <article class="article">
+        <section class="chapter" id="question" aria-labelledby="question-title">
+          <p class="chapter-index">01 / The question</p>
+          <h2 id="question-title">A good prediction still leaves a question.</h2>
+          <p class="lead">Which information in the EEG made that prediction possible?</p>
+          <p>This project grew from our solution to the NeurIPS 2025 EEG Foundation Challenge. The task was to predict a person's reaction time from a fixed EEG window. After the challenge, we stepped back to examine an idea behind the solution: a latency label might help a model locate relevant evidence in time.</p>
+          <p>A scalar predictor can use many cues: overall signal properties, differences between participants, or patterns tied to a fixed stimulus window. Low prediction error alone does not tell us whether the model tracks response-relevant timing within an individual trial.</p>
+          <blockquote>Can a behavioral timestamp provide weak supervision for a model's representation of time?</blockquote>
+          <p>Reaction time is measured at the button press. It reflects a sequence of sensory, decision, and motor processes. We therefore use it as a noisy clue about response-relevant timing, without assuming it marks one precisely annotated brain event.</p>
+          <figure>
+            <a class="figure-link" data-figure href="assets/NECO-26-000-60R1-Figure-1.png" aria-label="Enlarge the EEG task diagram"><img loading="lazy" src="assets/NECO-26-000-60R1-Figure-1.png" width="1692" height="669" alt="A participant performs a visual contrast change detection task while EEG is recorded. A button press supplies the reaction-time label."><span class="expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span></a>
+            <figcaption><span>Figure 1 &middot; The task</span>The Healthy Brain Network contrast change detection task pairs EEG with behavioral RT. The main models receive 128 channels sampled at 100 Hz, from 0.5 to 2.5 seconds after stimulus onset.</figcaption>
+          </figure>
+        </section>
+
+        <section class="chapter" id="formulation" aria-labelledby="formulation-title">
+          <p class="chapter-index">02 / A posterior over time</p>
+          <h2 id="formulation-title">Give the output a time axis.</h2>
+          <p class="lead">A single number becomes a distribution over 200 possible time bins.</p>
+          <p>Given an EEG window <var>X</var>, the model estimates <var>p</var><sub>t</sub>(<var>X</var>): the probability assigned to each possible response-relevant event time. The probabilities sum to one. A concentrated distribution, a broad distribution, and a distribution with two peaks can have the same mean, yet describe very different timing hypotheses.</p>
+          <div class="method-steps">
+            <div><span class="step-number">1</span><h3>Encode the EEG</h3><p>A temporal backbone produces a score for each of 200 bins, spaced 10 ms apart.</p></div>
+            <div><span class="step-number">2</span><h3>Learn timing probabilities</h3><p>Behavioral RT constrains the distribution through a temporal target or an observation likelihood.</p></div>
+            <div><span class="step-number">3</span><h3>Read out reaction time</h3><p>The posterior mean provides a scalar prediction for the same RT benchmark.</p></div>
+          </div>
+          <div class="equation-row">
+            <div class="equation" role="math" aria-label="Predicted RT equals crop start plus the sum of time-bin locations weighted by their posterior probabilities">RT&#770; = <var>t</var><sub>0</sub> + &sum;<sub>t</sub> <var>g</var><sub>t</sub> <var>p</var><sub>t</sub>(<var>X</var>)</div>
+            <p><var>t</var><sub>0</sub> is the crop start. <var>g</var><sub>t</sub> is time within the crop. The weighted average returns a time measured from stimulus onset.</p>
+          </div>
+          <p>The key experimental control uses exactly this posterior-mean readout but trains it only on scalar RT error. This lets us ask whether supervising the <em>distribution itself</em> adds anything beyond a temporal output head.</p>
+          <details><summary>Where does the neural network architecture enter?</summary><div class="detail-body">
+            <p>ETS-U-Net is the primary backbone: a one-dimensional encoder-decoder with skip connections and time-resolved outputs. We also test a dilated temporal CNN, an Inception-style multiscale network, and an attention-based segmentation network. Their capacities are closely matched at about 3.1 million parameters.</p>
+            <figure><a class="figure-link" data-figure href="assets/NECO-26-000-60R1-Figure-4.png" aria-label="Enlarge ETS-U-Net architecture"><img loading="lazy" src="assets/NECO-26-000-60R1-Figure-4.png" width="2158" height="728" alt="The ETS-U-Net architecture encodes an EEG window and upsamples features with skip connections to produce a distribution over time bins."></a><figcaption><span>Figure 4</span>The primary ETS-U-Net backbone.</figcaption></figure>
+            <figure><a class="figure-link" data-figure href="assets/NECO-26-000-60R1-Figure-2.png" aria-label="Enlarge scalar baseline architecture"><img loading="lazy" src="assets/NECO-26-000-60R1-Figure-2.png" width="1106" height="435" alt="MSP-CNN uses temporal convolutions, segment-level pooling, and an MLP to output scalar reaction time."></a><figcaption><span>Figure 2</span>MSP-CNN, one of the direct scalar regression controls.</figcaption></figure>
+          </div></details>
+        </section>
+
+        <section class="chapter" id="objectives" aria-labelledby="objectives-title">
+          <p class="chapter-index">03 / Ways to supervise</p>
+          <h2 id="objectives-title">One behavioral label. Two ways to use it.</h2>
+          <p>We compare an explicit distribution target with a latent-event likelihood. Both preserve a time-resolved output, but they express different assumptions about what RT tells us.</p>
+          <div class="objective-columns">
+            <section class="objective soft"><p class="overline">Soft-target supervision</p><h3>Place a soft target around RT.</h3><p>Turn the observed latency into a Gaussian-shaped target distribution <var>q</var><sub>t</sub>(<var>y</var>) on the time grid. Cross-entropy (CE) trains the predicted distribution to match it.</p><div class="equation" role="math" aria-label="Cross entropy equals minus the sum of target probability times log predicted probability">L<sub>CE</sub> = &minus;&sum;<sub>t</sub> <var>q</var><sub>t</sub>(<var>y</var>) log <var>p</var><sub>t</sub>(<var>X</var>)</div><p class="note">The Gaussian bandwidth sets the softness of supervision. It is not a measured uncertainty in the participant's reaction time.</p></section>
+            <section class="objective likelihood"><p class="overline">Likelihood-based supervision</p><h3>Treat RT as a noisy observation.</h3><p>EventNLL combines the latent event-time posterior with an observation kernel <var>K</var>(<var>y</var> | <var>t</var>). Training rewards event times that make the observed RT plausible.</p><div class="equation" role="math" aria-label="Event NLL equals minus log of the sum of event probabilities times observation likelihoods">L<sub>EventNLL</sub> = &minus;log &sum;<sub>t</sub> <var>p</var><sub>t</sub>(<var>X</var>) <var>K</var>(<var>y</var> | <var>t</var><sub>0</sub> + <var>g</var><sub>t</sub>)</div><p class="note">The neural event is unobserved. Its possible times are summed over, rather than selecting a hard event-time label.</p></section>
+          </div>
+          <details><summary>What changes between Gaussian, mixture, and hazard EventNLL?</summary><div class="detail-body"><p><strong>Gaussian EventNLL</strong> uses a Gaussian observation kernel around each latent time. <strong>Mixture EventNLL</strong> combines a narrow and a wide Gaussian component centered at the same time, allowing some RT observations to be noisier.</p><p><strong>Hazard EventNLL</strong> changes how the posterior is constructed. Each bin predicts the probability of an event now, conditional on no earlier event. These hazards produce a normalized event-time probability mass function, used in the same likelihood and expectation readout.</p></div></details>
+          <details><summary>Why include Wasserstein and the RT-only control?</summary><div class="detail-body"><p><strong>Wasserstein</strong> matches the cumulative distributions of the soft target and prediction. It explicitly accounts for how far probability mass moves on the ordered time axis.</p><p><strong>RT-only soft-argmax</strong> supervises only the posterior mean through RT error. The distribution is otherwise unconstrained by an event-time target. It tests whether the temporal expectation readout alone explains the gain.</p></div></details>
+        </section>
+
+        <section class="chapter" id="evidence" aria-labelledby="evidence-title">
+          <p class="chapter-index">04 / Controlled evidence</p>
+          <h2 id="evidence-title">Test the supervision, then change the backbone.</h2>
+          <p class="lead">The benefit of CE and EventNLL persists beyond one architecture.</p>
+          <p>All main comparisons use the same subject-disjoint, release-separated protocol. Development data determine checkpoints and readout temperatures. R11 is held out until those choices are fixed.</p>
+          <div class="protocol">
+            <div><span>Fit</span><strong>R1&ndash;R8</strong><p>73,030 trials<br>1,221 participants</p></div>
+            <div><span>Develop</span><strong>R9&ndash;R10</strong><p>17,348 trials<br>308 participants</p></div>
+            <div><span>Evaluate</span><strong>R11</strong><p>15,164 trials<br>292 participants</p></div>
+          </div>
+          <p class="note">Analyzed trials have RT within 0.5&ndash;2.5 s. There is no participant overlap between partitions. Results below are means &plusmn; sample standard deviation over five seeds (2025&ndash;2029).</p>
+          <div class="table-wrap" tabindex="0" aria-label="Main objective results">
+            <table><caption>Primary comparison &middot; R11 nRMSE <span>Lower is better</span></caption><thead><tr><th scope="col">Model / objective</th><th scope="col">Supervision</th><th scope="col" class="numeric">nRMSE &darr;</th></tr></thead><tbody>
+              <tr class="reference-row"><th scope="row">ETR-CNN large</th><td>Strongest scalar regression baseline</td><td class="numeric">0.8928 &plusmn; 0.0042</td></tr>
+              <tr><th scope="row">RT-only soft-argmax</th><td>ETS-U-Net, posterior mean only</td><td class="numeric">0.8917 &plusmn; 0.0046</td></tr>
+              <tr><th scope="row">CE</th><td>ETS-U-Net, soft distribution target</td><td class="numeric">0.8753 &plusmn; 0.0039</td></tr>
+              <tr><th scope="row">EventNLL</th><td>ETS-U-Net, Gaussian likelihood</td><td class="numeric">0.8772 &plusmn; 0.0018</td></tr>
+              <tr class="highlight-row"><th scope="row">Mixture EventNLL</th><td>ETS-U-Net, two-scale likelihood</td><td class="numeric"><strong>0.8745 &plusmn; 0.0053</strong></td></tr>
+              <tr><th scope="row">Hazard EventNLL</th><td>ETS-U-Net, hazard posterior</td><td class="numeric">0.8778 &plusmn; 0.0041</td></tr>
+              <tr><th scope="row">Wasserstein</th><td>ETS-U-Net, CDF matching</td><td class="numeric">0.8896 &plusmn; 0.0033</td></tr>
+            </tbody></table>
+          </div>
+          <p class="source-note">Paper Tables 3&ndash;4. Event-time results use development-selected readout temperature (&tau;-nRMSE). ETR-CNN large is the scalar reference. nRMSE is RMSE divided by the target standard deviation on the evaluated split.</p>
+          <div class="finding"><span>Size of the effect</span><p>Mixture EventNLL reduces nRMSE by about <strong>2.1% relative to ETR-CNN large</strong>. The RMSE improvement is 6.24 ms (subject-bootstrap 95% CI: 4.50&ndash;7.97 ms), and the MAE improvement is 8.94 ms (7.43&ndash;10.49 ms). The gain is positive in all five matched seeds.</p></div>
+          <p>The absolute improvement is moderate. The more general result is the controlled pattern: CE and EventNLL outperform the RT-only mean-readout control. The leading objectives are close relative to seed variability, so their small differences in scalar accuracy should not be treated as a universal ranking.</p>
+          <div class="backbone-tool">
+            <div class="tool-heading"><div><p class="overline">Architecture control</p><h3>The same question, four backbones</h3></div><label for="backbone">Backbone<select id="backbone"><option value="unet">ETS-U-Net</option><option value="tcn">ETS-TCN</option><option value="inception">ETS-InceptionPyramid</option><option value="attention">ETS-AttnSeg</option></select></label></div>
+            <div class="backbone-chart" id="backbone-chart" aria-hidden="true"></div>
+            <div class="table-wrap"><table class="compact-table"><caption class="sr-only">R11 temperature-tuned nRMSE for the selected backbone</caption><thead><tr><th scope="col">Objective</th><th scope="col" class="numeric">Holdout &tau;-nRMSE &darr;</th></tr></thead><tbody id="backbone-values"><tr><th scope="row">RT-only soft-argmax</th><td class="numeric">0.8917 &plusmn; 0.0046</td></tr><tr><th scope="row">CE</th><td class="numeric">0.8753 &plusmn; 0.0039</td></tr><tr><th scope="row">Mixture EventNLL</th><td class="numeric">0.8745 &plusmn; 0.0053</td></tr></tbody></table></div>
+            <p class="source-note" id="backbone-note">Table 5. Three supervision objectives, one fixed backbone. Lines in the plot show &plusmn;1 sample SD, not confidence intervals.</p>
+            <p id="backbone-status" class="sr-only" aria-live="polite"></p>
+          </div>
+          <p>Across all four backbones, CE and mixture EventNLL improve the mean result over RT-only soft-argmax. This supports a supervision effect beyond the U-Net architecture. The separate external EEG baselines were trained from scratch; this study does not compare against their pretrained checkpoints.</p>
+        </section>
+
+        <section class="chapter" id="geometry" aria-labelledby="geometry-title">
+          <p class="chapter-index">05 / Beyond one number</p>
+          <h2 id="geometry-title">Similar prediction error. Different posteriors.</h2>
+          <p class="lead">Accuracy, temporal concentration, and uncertainty are separate questions.</p>
+          <p>A mean RT prediction discards the shape of its distribution. The posterior lets us examine how tightly mass is concentrated, how it aligns with the behavioral target, and how often its intervals contain observed RT.</p>
+          <figure><a class="figure-link" data-figure href="assets/NECO-26-000-60R1-Figure-5.png" aria-label="Enlarge trial-sorted posterior maps"><img loading="lazy" src="assets/NECO-26-000-60R1-Figure-5.png" width="2184" height="1720" alt="Six posterior heatmaps, ordered by observed reaction time. EventNLL variants produce narrower bright bands near the observed RT curve than CE, RT-only soft-argmax, and Wasserstein."><span class="expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span></a><figcaption><span>Figure 5 &middot; Holdout posterior maps</span>Rows are quantile bins of trials sorted by observed RT, not individual raw EEG traces. Color represents averaged log-transformed posterior density. The overlaid curve marks the mean observed RT in each bin.</figcaption></figure>
+          <div class="metric-definitions">
+            <div><h3>Concentration</h3><p><strong>Width80</strong> measures the central 80% interval width. <strong>Mode&ndash;mean disagreement</strong> asks whether the peak and scalar prediction agree.</p></div>
+            <div><h3>Target alignment</h3><p><strong>Mass &plusmn;150 ms</strong> measures probability near the observed RT. It evaluates behavioral alignment, not agreement with annotated neural onsets.</p></div>
+            <div><h3>Interval behavior</h3><p><strong>Coverage80</strong> should be near 0.80. <strong>Coverage MAE</strong> summarizes the mismatch across several nominal interval levels.</p></div>
+          </div>
+          <figure><a class="figure-link" data-figure href="assets/NECO-26-000-60R1-Figure-6.png" aria-label="Enlarge six-panel posterior geometry comparison"><img loading="lazy" src="assets/NECO-26-000-60R1-Figure-6.png" width="3939" height="2285" alt="Six plots compare nRMSE, target-aligned posterior shapes, widths, near-target mass, mode-mean differences, and interval coverage across training objectives."><span class="expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span></a><figcaption><span>Figure 6 &middot; Posterior geometry</span>EventNLL-family models produce sharper, more target-concentrated posteriors. Their latent intervals also under-cover behavioral RT. A sharper posterior is not automatically better-calibrated predictive uncertainty.</figcaption></figure>
+          <h3 class="subheading">Latent timing and observed RT need different uncertainty models.</h3>
+          <p>For EventNLL, the event-time posterior and the distribution of observed RT are different objects. The observation kernel connects them:</p>
+          <div class="equation-row"><div class="equation" role="math" aria-label="Predictive probability of reaction time is the sum over latent event times of posterior probability times the RT observation kernel"><var>p</var>(<var>y</var><sub>RT</sub> | <var>X</var>) = &sum;<sub>t</sub> <var>p</var><sub>t</sub>(<var>X</var>) <var>K</var>(<var>y</var><sub>RT</sub> | <var>t</var><sub>0</sub> + <var>g</var><sub>t</sub>)</div></div>
+          <p>We calibrate a single scale on this observation kernel using development data. The trained EEG model, latent posterior, and mean RT prediction stay fixed. For EventNLL-family models, predictive RT Coverage MAE falls from 0.040&ndash;0.059 to 0.005&ndash;0.008; holdout Coverage80 is then 0.790&ndash;0.795.</p>
+          <p class="source-note">Paper Section 6.2 and Appendix Table 8. These before/after errors refer to predictive RT intervals using the original versus calibrated observation kernel, not to intervals of the latent posterior alone.</p>
+          <details><summary>Readout temperature is not uncertainty calibration</summary><div class="detail-body"><p>The readout temperature is chosen on R9&ndash;R10 to minimize scalar nRMSE. It changes the probabilities used in the expectation readout. That choice does not establish probabilistic calibration; likelihood and interval coverage are evaluated separately.</p><figure><a class="figure-link" data-figure href="assets/NECO-26-000-60R1-Figure-7.png" aria-label="Enlarge temperature selection curves"><img loading="lazy" src="assets/NECO-26-000-60R1-Figure-7.png" width="2319" height="1390" alt="Development nRMSE as a function of readout temperature for each objective, with vertical lines indicating selected temperatures."></a><figcaption><span>Figure 7</span>Readout-temperature selection uses development data only.</figcaption></figure></div></details>
+        </section>
+
+        <section class="chapter" id="shifts" aria-labelledby="shifts-title">
+          <p class="chapter-index">06 / Shift the window</p>
+          <h2 id="shifts-title">Does the prediction move with the evidence?</h2>
+          <p class="lead">Change the crop start. Keep the underlying trial.</p>
+          <p>A response at 1.7 s after stimulus onset is 1.2 s into a crop starting at 0.5 s. Start the crop at 0.8 s, and the same response is now only 0.9 s into it. An ideal crop-relative localizer should adjust by &minus;0.3 s.</p>
+          <div class="shift-lab">
+            <div class="tool-heading"><div><p class="overline">Schematic example &middot; not model output</p><h3>One event, different time coordinates</h3></div><button class="icon-button" id="reset-shift" type="button" title="Reset crop start" aria-label="Reset crop start"><i data-lucide="rotate-ccw" aria-hidden="true"></i></button></div>
+            <div class="lab-controls"><label class="range-label" for="crop-start">Crop start after stimulus <output id="crop-output" for="crop-start">0.50 s</output><input id="crop-start" type="range" min="0.2" max="0.8" step="0.1" value="0.5"></label><fieldset class="segmented"><legend>Prediction behavior</legend><label><input type="radio" name="shift-mode" value="localizer" checked><span>Tracks the event</span></label><label><input type="radio" name="shift-mode" value="fixed"><span>Fixed in the window</span></label></fieldset></div>
+            <canvas id="shift-canvas" role="img" aria-label="Schematic event-time distributions before and after changing the crop start"></canvas>
+            <div class="shift-readouts"><div><span>True event, crop-relative</span><strong id="true-relative">1.20 s</strong></div><div><span>Predicted event, crop-relative</span><strong id="pred-relative">1.20 s</strong></div><div><span>Predicted event, stimulus-relative</span><strong id="pred-absolute">1.70 s</strong></div></div>
+            <p id="shift-explanation" class="lab-explanation" aria-live="polite">At the canonical crop, both behaviors give the same prediction. A shift reveals how they differ.</p>
+            <p class="note">The curves are synthetic Gaussian distributions illustrating two idealized behaviors. The empirical experiment below evaluates trained models on different crops of recorded EEG; changing a crop also changes its available context.</p>
+          </div>
+          <p>In the experiment, 2 s windows start at 0.2, 0.3, &hellip;, 0.8 s within the same 5 s holdout segment. We also train matched <strong>shift-jitter</strong> variants by sampling crop starts during training and expressing RT relative to each sampled window.</p>
+          <div class="tool-heading shift-table-heading"><h3>What happened in the experiment?</h3><label for="shift-objective">Objective<select id="shift-objective"><option value="mixture">Mixture EventNLL</option><option value="ce">CE</option><option value="event">EventNLL</option><option value="hazard">Hazard EventNLL</option><option value="rt">RT-only soft-argmax</option><option value="wasserstein">Wasserstein</option></select></label></div>
+          <div class="table-wrap"><table><caption class="sr-only">Fixed-window training compared with shift-jitter training</caption><thead><tr><th scope="col">Metric</th><th scope="col" class="numeric">Fixed training</th><th scope="col" class="numeric">Shift-jitter</th></tr></thead><tbody id="shift-results"><tr><th scope="row">Canonical &tau;-nRMSE &darr;</th><td class="numeric">0.8745</td><td class="numeric">0.8734</td></tr><tr><th scope="row">Shifted relative nRMSE &darr;</th><td class="numeric">0.8663</td><td class="numeric">0.8576</td></tr><tr><th scope="row">Shift sensitivity (ideal: 1)</th><td class="numeric">0.6021</td><td class="numeric">0.6249</td></tr><tr><th scope="row">Direction agreement &uarr;</th><td class="numeric">0.7730</td><td class="numeric">0.7925</td></tr></tbody></table></div>
+          <p class="source-note">Table 7. Seed means; variability is reported in Appendix Table 9. Sensitivity measures the magnitude of prediction change relative to the imposed shift. Direction agreement measures how often prediction changes opposite to the crop shift. Both use the common subset with responses inside every crop.</p>
+          <p>Shift-jitter improves shifted-crop accuracy, mean sensitivity, and direction agreement for every evaluated objective. Yet sensitivity stays below the ideal value of 1. The models show <strong>partial temporal localization</strong>, with a remaining gap to fully crop-relative behavior.</p>
+          <div class="finding pink"><span>What the test establishes</span><p>Controlled input changes make the model's timing behavior testable. They do not identify the causal brain mechanism behind the response, or prove that all useful cues are neural rather than behavioral or artifactual.</p></div>
+        </section>
+
+        <section class="chapter" id="scope" aria-labelledby="scope-title">
+          <p class="chapter-index">07 / What this means</p>
+          <h2 id="scope-title">Make timing a part of the learning problem.</h2>
+          <p class="lead">The output representation changes both what we train and what we can inspect.</p>
+          <p>For this task, CE and EventNLL turn a behavioral latency into useful supervision for a distribution over time. Controlled comparisons support an advantage over scalar prediction and mean-readout-only training. The posterior then exposes properties that a single error score would hide.</p>
+          <div class="scope-grid"><div><h3>Supported in this study</h3><ul><li>Improved RT prediction under the fixed HBN protocol, across five seeds and four temporal backbones.</li><li>Different objectives induce different trade-offs between concentration, alignment, and interval behavior.</li><li>Shift-jitter strengthens crop-relative behavior; localization remains partial.</li></ul></div><div><h3>Still open</h3><ul><li>Generalization to other tasks, recording setups, montages, and latency targets.</li><li>Validation against directly annotated neural events.</li><li>Separating all potential shortcuts and artifacts, and establishing a causal neural interpretation.</li></ul></div></div>
+          <p>Our &ldquo;event time&rdquo; is a learned latent timing variable, not an anatomical source location or a verified decision-stage onset. The data are scalp EEG with behavioral labels. The experiments concern temporal decoding and model behavior, not the recovery of a causal circuit.</p>
+          <p class="closing-thought">Can we predict reaction time?<br><em>And what temporal evidence supports that prediction?</em></p>
+        </section>
+
+        <section class="chapter resources" id="citation" aria-labelledby="citation-title">
+          <p class="chapter-index">08 / Paper &amp; resources</p>
+          <h2 id="citation-title">Read, reproduce, build on it.</h2>
+          <div class="resource-links"><a class="button primary" href="https://arxiv.org/abs/2608.29428"><i data-lucide="arrow-up-right" aria-hidden="true"></i>arXiv:2608.29428</a><a class="button" href="assets/paper.pdf" download="Aimoldin_et_al_Behavioral_Latency.pdf"><i data-lucide="download" aria-hidden="true"></i>Download PDF</a><a class="button" href="https://github.com/sneddy/neurosned"><i data-lucide="code-xml" aria-hidden="true"></i>Repository</a></div>
+          <p>The repository contains experiment configurations, implementation, and paper result tables. The study uses the Healthy Brain Network contrast change detection EEG task. Full preprocessing, support filters, objective settings, and reproducibility details are in the paper's appendices.</p>
+          <div class="citation-top"><h3>Citation</h3><div><a class="icon-button" href="citation.bib" download title="Download BibTeX" aria-label="Download BibTeX"><i data-lucide="download" aria-hidden="true"></i></a><button type="button" class="icon-button" id="copy-citation" title="Copy BibTeX" aria-label="Copy BibTeX"><i data-lucide="copy" aria-hidden="true"></i></button></div></div>
+          <pre id="bibtex" tabindex="0">@misc{aimoldin2026behaviorallatency,
+  title = {Behavioral Latency as Weak Event-Time Supervision
+           for EEG Reaction-Time Decoding},
+  author = {Aimoldin, Anuar and Mussabayeva, Ayana and
+            Mussabayev, Yedige and Liu, Xue and Zhang, Kun},
+  year = {2026},
+  eprint = {2608.29428},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.LG},
+  url = {https://arxiv.org/abs/2608.29428},
+  note = {Accepted for publication in Neural Computation}
+}</pre>
+          <p id="copy-status" class="copy-status" role="status"></p>
+          <details><summary>Acknowledgments</summary><div class="detail-body"><p>We would like to acknowledge support from NSF Award No. 2229881 for the AI Institute for Societal Decision Making (AI-SDM), the National Institutes of Health (NIH) under Contract R01HL159805, the MBZUAI-WIS Joint Program, the MBZUAI Startup Fund, and the Al Deira Causal Education project.</p></div></details>
+          <p class="source-note">Figures are reproduced from the authors' manuscript. Quantitative summaries follow the accepted manuscript and arXiv v1. The synthetic crop example illustrates coordinate behavior and is not an additional experimental result.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer><a href="/research">Ayana Mussabayeva &middot; Publications</a><a href="#main">Back to top <i data-lucide="arrow-up" aria-hidden="true"></i></a></footer>
+  <dialog id="figure-dialog" aria-labelledby="figure-title"><div class="dialog-top"><h2 id="figure-title">Paper figure</h2><div><a class="icon-button" id="figure-original" title="Open full-resolution figure" aria-label="Open full-resolution figure" target="_blank" rel="noopener"><i data-lucide="external-link" aria-hidden="true"></i></a><button type="button" class="icon-button" id="close-figure" title="Close figure" aria-label="Close figure"><i data-lucide="x" aria-hidden="true"></i></button></div></div><div class="dialog-image"><img id="figure-image" alt=""></div><p id="figure-caption"></p></dialog>
+</body>
+</html>

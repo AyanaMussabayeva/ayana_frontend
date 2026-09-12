@@ -12,6 +12,7 @@
         "description": "Accepted for publication in Neural Computation, this paper reformulates single-trial EEG reaction-time decoding as event-time posterior modeling, using behavioral latency as weak supervision for response-relevant neural dynamics.",
         "citation": "A. Aimoldin, A. Mussabayeva, Y. Mussabayev, X. Liu, K. Zhang, \"Behavioral Latency as Weak Event-Time Supervision for EEG Reaction-Time Decoding,\" Neural Computation, accepted for publication, 2026. arXiv:2608.29428.",
         "link": "https://arxiv.org/abs/2608.29428",
+        "projectLink": "/publications/behavioral-latency/index.html",
         "tags": ["Neural Computation", "EEG", "Reaction Time", "Weak Supervision", "Event-Time Modeling"]
       },
       {

@@ -92,7 +92,7 @@ export default function ResearchPage() {
           <div className="space-y-6">
             {research.publications.items.map((publication: Publication, index: number) => (
               <div key={index} className="relative rounded-lg overflow-hidden">
-                <div className="absolute inset-0 rounded-lg overflow-hidden z-10">
+                <div className="pointer-events-none absolute inset-0 rounded-lg overflow-hidden z-10" aria-hidden="true">
                   {/* Top border */}
                   <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#00B5C9] via-[#F6ED3C] to-[#EC51AB] animate-gradient-x"></div>
                   {/* Left border */}
@@ -116,23 +116,31 @@ export default function ResearchPage() {
                       <p className="text-sm text-muted-foreground">{publication.authors}</p>
                     </div>
 
-                    {/* Show More/Less Button */}
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => toggleExpand(index)}
-                      className="text-xs text-primary hover:text-primary/80 p-0 h-auto"
-                    >
-                      {expandedPublications[index] ? (
-                        <span className="flex items-center">
-                          Show Less <ChevronUp className="ml-1 h-3 w-3" />
-                        </span>
-                      ) : (
-                        <span className="flex items-center">
-                          Show More <ChevronDown className="ml-1 h-3 w-3" />
-                        </span>
+                    <div className="flex flex-wrap items-center gap-4">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => toggleExpand(index)}
+                        className="text-xs text-primary hover:text-primary/80 p-0 h-auto"
+                      >
+                        {expandedPublications[index] ? (
+                          <span className="flex items-center">
+                            Show Less <ChevronUp className="ml-1 h-3 w-3" />
+                          </span>
+                        ) : (
+                          <span className="flex items-center">
+                            Show More <ChevronDown className="ml-1 h-3 w-3" />
+                          </span>
+                        )}
+                      </Button>
+                      {publication.projectLink && (
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={publication.projectLink}>
+                            Explore details <ArrowRight className="ml-2 h-3 w-3" aria-hidden="true" />
+                          </a>
+                        </Button>
                       )}
-                    </Button>
+                    </div>
 
                     {/* Expandable content */}
                     <div
