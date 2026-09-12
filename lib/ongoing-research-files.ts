@@ -5,6 +5,7 @@ import { readFile } from "node:fs/promises"
 import path from "node:path"
 import { gunzipSync } from "node:zlib"
 import { researchConfiguration } from "./ongoing-research"
+import { sourceLocalizationTheme } from "./source-localization-theme"
 
 const contentTypes: Record<string, string> = {
   "index.html": "text/html; charset=utf-8",
@@ -22,6 +23,7 @@ function addResearchNavigation(html: string, name: string) {
     .research-back-link:hover{background:var(--teal-soft);border-color:var(--teal)}
     @media(max-width:1000px){.research-header-links .wordmark{display:none}}
     @media(max-width:600px){.research-back-label{display:none}.research-back-link{width:44px;justify-content:center;padding:6px;font-size:20px}}
+    ${sourceLocalizationTheme}
   </style>`
 
   return html
