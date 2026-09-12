@@ -4,11 +4,12 @@ import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Users, Quote, ChevronDown, ChevronUp } from "lucide-react"
+import { ExternalLink, Users, Quote, ChevronDown, ChevronUp, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import i18n from "@/lib/i18n"
 import { YouTubeEmbed } from "@/app/components/youtube-embed"
 import Image from "next/image"
+import Link from "next/link"
 
 const research = i18n.getResourceBundle("en", "research")
 type Publication = (typeof research.publications.items)[number]
@@ -30,7 +31,14 @@ export default function ResearchPage() {
     <div className="container py-12">
       <div className="max-w-3xl mx-auto space-y-8">
         <div className="space-y-4">
-          <h1 className="text-3xl font-bold">My Research</h1>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <h1 className="text-3xl font-bold">My Research</h1>
+            <Button variant="outline" size="sm" asChild>
+              <Link href="/research/ongoing" prefetch={false}>
+                Ongoing research <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
           <p className="text-muted-foreground">
             My research focuses on causal representation learning, signal processing and machine learning algorithms for
             different applications, mainly medicine, neuroscience and brain-computer interfaces.
