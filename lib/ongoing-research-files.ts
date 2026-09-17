@@ -12,6 +12,7 @@ const contentTypes: Record<string, string> = {
   "index_ru.html": "text/html; charset=utf-8",
   "NOTATION.md": "text/plain; charset=utf-8",
   "iclr_draft_v3.pdf": "application/pdf",
+  "iclr_draft_v4.pdf": "application/pdf",
   "data_method_overview_editable.png": "image/png",
 }
 

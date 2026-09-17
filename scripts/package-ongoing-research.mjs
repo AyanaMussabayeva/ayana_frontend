@@ -15,13 +15,19 @@ const key = Buffer.from(secret, "base64")
 if (key.length !== 32) throw new Error("Research key must contain 32 random bytes")
 
 const prefix = "/research/ongoing/source-localization/presentation/"
+const documents = {
+  "NOTATION.md": "../NOTATION.md",
+  "iclr_draft_v3.pdf": "../writing/output/pdf/iclr_draft_v3.pdf",
+  "iclr_draft_v4.pdf": "../writing/output/pdf/iclr_draft_v4.pdf",
+}
 const files = {}
 for (const name of ["index.html", "index_ru.html"]) {
   let html = await readFile(path.join(source, name), "utf8")
   html = html.replace(/<head>/i, `<head>\n<base href="${prefix}${name}">\n<meta name="robots" content="noindex, nofollow, noarchive">\n<meta name="referrer" content="no-referrer">`)
-  html = html.replaceAll("../NOTATION.md", `${prefix}NOTATION.md`)
-    .replaceAll("../writing/output/pdf/iclr_draft_v3.pdf", `${prefix}iclr_draft_v3.pdf`)
-    .replaceAll("../writing/img/data_method/data_method_overview_editable.png", `${prefix}data_method_overview_editable.png`)
+  for (const [documentName, relativePath] of Object.entries(documents)) {
+    html = html.replaceAll(relativePath, `${prefix}${documentName}`)
+  }
+  html = html.replaceAll("../writing/img/data_method/data_method_overview_editable.png", `${prefix}data_method_overview_editable.png`)
     .replaceAll(" The local PDF link requires the original project folder.", "")
     .replaceAll(" Ссылка на PDF работает при наличии исходной папки проекта.", "")
     .replaceAll("Открыть локальный PDF статьи v3", "Открыть PDF статьи v3")
@@ -33,20 +39,23 @@ for (const name of ["index.html", "index_ru.html"]) {
   )
   files[name] = Buffer.from(html).toString("base64")
 }
+let existingFiles = {}
 if (htmlOnly) {
   const previous = await readFile("private/ongoing-research.enc")
   if (previous.subarray(0, 4).toString() !== "ARP1") throw new Error("Invalid existing research bundle")
   const decipher = createDecipheriv("aes-256-gcm", key, previous.subarray(4, 16))
   decipher.setAuthTag(previous.subarray(16, 32))
   const compressed = Buffer.concat([decipher.update(previous.subarray(32)), decipher.final()])
-  const existingFiles = JSON.parse(gunzipSync(compressed, { maxOutputLength: 20 * 1024 * 1024 }).toString("utf8"))
+  existingFiles = JSON.parse(gunzipSync(compressed, { maxOutputLength: 20 * 1024 * 1024 }).toString("utf8"))
   for (const name of ["NOTATION.md", "iclr_draft_v3.pdf"]) {
     if (typeof existingFiles[name] !== "string") throw new Error(`Missing existing document: ${name}`)
-    files[name] = existingFiles[name]
   }
-} else {
-  files["NOTATION.md"] = (await readFile(path.resolve(source, "../NOTATION.md"))).toString("base64")
-  files["iclr_draft_v3.pdf"] = (await readFile(path.resolve(source, "../writing/output/pdf/iclr_draft_v3.pdf"))).toString("base64")
+}
+for (const [name, relativePath] of Object.entries(documents)) {
+  // Preserve published documents in HTML-only refreshes; include newly linked ones.
+  files[name] = htmlOnly && typeof existingFiles[name] === "string"
+    ? existingFiles[name]
+    : (await readFile(path.resolve(source, relativePath))).toString("base64")
 }
 
 files["data_method_overview_editable.png"] = (await readFile(path.resolve(source, "../writing/img/data_method/data_method_overview_editable.png"))).toString("base64")

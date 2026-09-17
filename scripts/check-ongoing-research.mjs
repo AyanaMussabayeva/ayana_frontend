@@ -37,14 +37,14 @@ assert.ok(!loginHTML.includes("Open project"))
 assert.ok(!loginHTML.includes(privateMarker))
 check("Public entry contains GIF/login only and prevents indexing/caching")
 
-for (const route of [project, `${presentation}/index.html`, `${presentation}/index_ru.html`, `${presentation}/NOTATION.md`, `${presentation}/iclr_draft_v3.pdf`, `${presentation}/data_method_overview_editable.png`]) {
+for (const route of [project, `${presentation}/index.html`, `${presentation}/index_ru.html`, `${presentation}/NOTATION.md`, `${presentation}/iclr_draft_v3.pdf`, `${presentation}/iclr_draft_v4.pdf`, `${presentation}/data_method_overview_editable.png`]) {
   const response = await get(route)
   assert.ok([303, 307].includes(response.status), `Unauthenticated ${route} redirects`)
   assert.ok(response.headers.get("location").includes(root))
   noCache(response)
   assert.ok(!(await response.text()).includes(privateMarker))
 }
-check("Direct project, EN/RU HTML, notation, PDF, and diagram require a session")
+check("Direct project, EN/RU HTML, notation, v3/v4 PDFs, and diagram require a session")
 
 const rsc = await get(project, { RSC: "1", "Next-Router-Prefetch": "1", "x-middleware-subrequest": "middleware:middleware:middleware:middleware:middleware" })
 assert.ok(!(await rsc.text()).includes(privateMarker))
@@ -75,7 +75,7 @@ assert.equal(projects.status, 200)
 assert.ok((await projects.text()).includes("Open project"))
 check("Correct password creates a scoped session and reveals the projects list")
 
-for (const name of ["index.html", "index_ru.html", "NOTATION.md", "iclr_draft_v3.pdf", "data_method_overview_editable.png"]) {
+for (const name of ["index.html", "index_ru.html", "NOTATION.md", "iclr_draft_v3.pdf", "iclr_draft_v4.pdf", "data_method_overview_editable.png"]) {
   const response = await get(`${presentation}/${name}`, authHeaders)
   assert.equal(response.status, 200, name)
   noCache(response)
@@ -86,6 +86,7 @@ for (const name of ["index.html", "index_ru.html", "NOTATION.md", "iclr_draft_v3
     assert.ok(html.includes(`<base href="${presentation}/${name}">`))
     assert.ok(html.includes(`${presentation}/NOTATION.md`))
     assert.ok(html.includes(`${presentation}/iclr_draft_v3.pdf`))
+    assert.ok(html.includes(`${presentation}/iclr_draft_v4.pdf`))
     assert.ok(html.includes(`${presentation}/data_method_overview_editable.png`))
     assert.ok(!html.includes("../writing/output/pdf/"))
     assert.ok(!html.includes("../writing/img/"))

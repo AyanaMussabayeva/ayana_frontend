@@ -72,13 +72,14 @@ pnpm build
 ```
 
 The packager includes `index.html`, `index_ru.html`, `../NOTATION.md`,
-`../writing/output/pdf/iclr_draft_v3.pdf`, and the linked diagram
+`../writing/output/pdf/iclr_draft_v3.pdf`, `../writing/output/pdf/iclr_draft_v4.pdf`, and the linked diagram
 `../writing/img/data_method/data_method_overview_editable.png`, and adapts their links
 for the protected route. The original research files are not modified.
 
 To refresh the English and Russian HTML and their linked diagram while keeping the
-currently published notation guide and PDF, add `--html-only` to the packaging
-command. The site's light theme and navigation are applied separately when the
+currently published notation guide and PDFs, add `--html-only` to the packaging
+command. Newly linked documents are included when first added to the bundle.
+The site's light theme and navigation are applied separately when the
 protected HTML is served.
 
 The login endpoint limits failed attempts per server instance. For a deployment
