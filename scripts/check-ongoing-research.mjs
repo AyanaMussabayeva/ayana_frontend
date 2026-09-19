@@ -84,10 +84,8 @@ for (const name of ["index.html", "index_ru.html", "NOTATION.md", "iclr_draft_v3
     const html = bytes.toString()
     assert.match(response.headers.get("content-type"), /text\/html/)
     assert.ok(html.includes(`<base href="${presentation}/${name}">`))
-    assert.ok(html.includes(`${presentation}/NOTATION.md`))
-    assert.ok(html.includes(`${presentation}/iclr_draft_v3.pdf`))
-    assert.ok(html.includes(`${presentation}/iclr_draft_v4.pdf`))
-    assert.ok(html.includes(`${presentation}/data_method_overview_editable.png`))
+    // Standalone HTML may omit document links; any retained links must be portable.
+    assert.ok(!html.includes("../NOTATION.md"))
     assert.ok(!html.includes("../writing/output/pdf/"))
     assert.ok(!html.includes("../writing/img/"))
   } else if (name.endsWith(".pdf")) {
@@ -97,7 +95,7 @@ for (const name of ["index.html", "index_ru.html", "NOTATION.md", "iclr_draft_v3
     assert.ok(bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])))
   }
 }
-check("Authenticated EN/RU presentation and linked documents load with protected links")
+check("Authenticated EN/RU presentation and archived documents load without filesystem-relative links")
 
 const missing = await get(`${presentation}/unknown.txt`, authHeaders)
 assert.equal(missing.status, 404)
