@@ -58,7 +58,12 @@ for (const [name, relativePath] of Object.entries(documents)) {
     : (await readFile(path.resolve(source, relativePath))).toString("base64")
 }
 
-files["data_method_overview_editable.png"] = (await readFile(path.resolve(source, "../writing/img/data_method/data_method_overview_editable.png"))).toString("base64")
+// Standalone HTML no longer links the diagram; keep the archived copy when the source is gone.
+const diagram = await readFile(path.resolve(source, "../writing/img/data_method/data_method_overview_editable.png")).catch((error) => {
+  if (htmlOnly && typeof existingFiles["data_method_overview_editable.png"] === "string") return null
+  throw error
+})
+files["data_method_overview_editable.png"] = diagram ? diagram.toString("base64") : existingFiles["data_method_overview_editable.png"]
 
 const iv = randomBytes(12)
 const cipher = createCipheriv("aes-256-gcm", key, iv)

@@ -78,7 +78,8 @@ for the protected route. The original research files are not modified.
 
 To refresh the English and Russian HTML and their linked diagram while keeping the
 currently published notation guide and PDFs, add `--html-only` to the packaging
-command. Newly linked documents are included when first added to the bundle.
+command. Newly linked documents are included when first added to the bundle, and the
+archived diagram is kept if its source file has been removed from the research checkout.
 The site's light theme and navigation are applied separately when the
 protected HTML is served.
 

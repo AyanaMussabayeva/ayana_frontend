@@ -8,7 +8,7 @@ assert.ok(password, "Configure a local test password")
 const root = "/research/ongoing"
 const project = `${root}/source-localization`
 const presentation = `${project}/presentation`
-const privateMarker = "Identifying Neural Source Dynamics"
+const privateMarker = "Anatomically identifiable"
 let checked = 0
 
 async function get(path, headers = {}) {
