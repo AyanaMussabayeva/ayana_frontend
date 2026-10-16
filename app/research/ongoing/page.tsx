@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Activity, ArrowLeft, ArrowUpRight, LockKeyhole } from "lucide-react"
+import { Activity, ArrowLeft, ArrowUpRight, Brain, LockKeyhole } from "lucide-react"
 import {
   isResearchAuthenticated,
   isResearchConfigured,
@@ -8,6 +8,21 @@ import {
 } from "@/lib/ongoing-research"
 import { LoginForm } from "./login-form"
 import { LogoutButton } from "./logout-button"
+
+const projects = [
+  {
+    href: "/research/ongoing/source-localization",
+    title: "Source Localization",
+    description: "Explore the current project presentation, methods, and experiments.",
+    icon: Activity,
+  },
+  {
+    href: "/research/ongoing/same-images-different-headsets",
+    title: "Same Images, Different Headsets",
+    description: "How EEG visual decoding shifts across recording setups: a natural experiment with identical images, a causal model of what is identifiable, and pre-registered tests.",
+    icon: Brain,
+  },
+]
 
 type OngoingResearchPageProps = {
   searchParams?: { next?: string | string[]; error?: string | string[] }
@@ -86,32 +101,35 @@ export default async function OngoingResearchPage({ searchParams }: OngoingResea
             A look inside the work in progress. These projects are still evolving, from early ideas to the latest experiments.
           </p>
         </div>
-        <section aria-label="Research projects">
-          <a
-            href="/research/ongoing/source-localization"
-            className="group relative block overflow-hidden rounded-xl border bg-card p-6 transition-colors hover:border-primary/60 hover:bg-muted/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:p-8"
-          >
-            <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#00B5C9] via-[#F6ED3C] to-[#EC51AB]" />
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-primary/20 bg-primary/10 text-primary">
-                <Activity className="h-5 w-5" aria-hidden="true" />
+        <section aria-label="Research projects" className="space-y-4">
+          {projects.map((project) => (
+            <a
+              key={project.href}
+              href={project.href}
+              className="group relative block overflow-hidden rounded-xl border bg-card p-6 transition-colors hover:border-primary/60 hover:bg-muted/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:p-8"
+            >
+              <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#00B5C9] via-[#F6ED3C] to-[#EC51AB]" />
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-primary/20 bg-primary/10 text-primary">
+                  <project.icon className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <span className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground">
+                  <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                  In progress
+                </span>
               </div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground">
-                <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-                In progress
-              </span>
-            </div>
-            <div className="mt-6 space-y-2">
-              <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">Source Localization</h2>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                Explore the current project presentation, methods, and experiments.
-              </p>
-            </div>
-            <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
-              Open project
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
-            </div>
-          </a>
+              <div className="mt-6 space-y-2">
+                <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">{project.title}</h2>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {project.description}
+                </p>
+              </div>
+              <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
+                Open project
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+              </div>
+            </a>
+          ))}
         </section>
       </div>
     </div>

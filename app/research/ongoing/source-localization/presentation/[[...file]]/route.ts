@@ -14,7 +14,7 @@ export async function GET(request: NextRequest, { params }: { params: { file?: s
 
   const name = params.file?.join("/") || "index.html"
   try {
-    const file = await readResearchFile(name)
+    const file = await readResearchFile("source-localization", name)
     if (!file) return new NextResponse("Not found", { status: 404, headers: privateResearchHeaders })
     return new NextResponse(new Uint8Array(file.body), {
       headers: {

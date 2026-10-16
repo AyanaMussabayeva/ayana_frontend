@@ -9,6 +9,9 @@ const root = "/research/ongoing"
 const project = `${root}/source-localization`
 const presentation = `${project}/presentation`
 const privateMarker = "Anatomically identifiable"
+const headsetProject = `${root}/same-images-different-headsets`
+const headsetPresentation = `${headsetProject}/presentation`
+const headsetMarker = "natural experiment with identical images"
 let checked = 0
 
 async function get(path, headers = {}) {
@@ -35,6 +38,7 @@ const loginHTML = await login.text()
 assert.ok(loginHTML.includes("spongebob-mind.gif"))
 assert.ok(!loginHTML.includes("Open project"))
 assert.ok(!loginHTML.includes(privateMarker))
+assert.ok(!loginHTML.includes("Different Headsets"))
 check("Public entry contains GIF/login only and prevents indexing/caching")
 
 for (const route of [project, `${presentation}/index.html`, `${presentation}/index_ru.html`, `${presentation}/NOTATION.md`, `${presentation}/iclr_draft_v3.pdf`, `${presentation}/iclr_draft_v4.pdf`, `${presentation}/data_method_overview_editable.png`]) {
@@ -45,6 +49,15 @@ for (const route of [project, `${presentation}/index.html`, `${presentation}/ind
   assert.ok(!(await response.text()).includes(privateMarker))
 }
 check("Direct project, EN/RU HTML, notation, v3/v4 PDFs, and diagram require a session")
+
+for (const route of [headsetProject, `${headsetPresentation}/index.html`, `${headsetPresentation}/img/scm.png`]) {
+  const response = await get(route)
+  assert.ok([303, 307].includes(response.status), `Unauthenticated ${route} redirects`)
+  assert.ok(response.headers.get("location").includes(root))
+  noCache(response)
+  assert.ok(!(await response.text()).includes(headsetMarker))
+}
+check("Same Images, Different Headsets page and figures require a session")
 
 const rsc = await get(project, { RSC: "1", "Next-Router-Prefetch": "1", "x-middleware-subrequest": "middleware:middleware:middleware:middleware:middleware" })
 assert.ok(!(await rsc.text()).includes(privateMarker))
@@ -72,7 +85,9 @@ const cookie = setCookie.split(";")[0]
 const authHeaders = { Cookie: cookie }
 const projects = await get(root, authHeaders)
 assert.equal(projects.status, 200)
-assert.ok((await projects.text()).includes("Open project"))
+const projectsHTML = await projects.text()
+assert.ok(projectsHTML.includes("Open project"))
+assert.ok(projectsHTML.includes("Same Images, Different Headsets"))
 check("Correct password creates a scoped session and reveals the projects list")
 
 for (const name of ["index.html", "index_ru.html", "NOTATION.md", "iclr_draft_v3.pdf", "iclr_draft_v4.pdf", "data_method_overview_editable.png"]) {
@@ -96,6 +111,25 @@ for (const name of ["index.html", "index_ru.html", "NOTATION.md", "iclr_draft_v3
   }
 }
 check("Authenticated EN/RU presentation and archived documents load without filesystem-relative links")
+
+const headsetPage = await get(`${headsetPresentation}/index.html`, authHeaders)
+assert.equal(headsetPage.status, 200)
+noCache(headsetPage)
+const headsetHTML = await headsetPage.text()
+assert.ok(headsetHTML.startsWith("<!doctype html>"))
+assert.ok(headsetHTML.includes(`<base href="${headsetPresentation}/index.html">`))
+assert.ok(headsetHTML.includes("research-back-link"))
+for (const figure of new Set([...headsetHTML.matchAll(/src="(img\/[a-z0-9_]+\.png)"/g)].map((match) => match[1]))) {
+  const response = await get(`${headsetPresentation}/${figure}`, authHeaders)
+  assert.equal(response.status, 200, figure)
+  assert.match(response.headers.get("content-type"), /image\/png/)
+  assert.ok(Buffer.from(await response.arrayBuffer()).subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])))
+}
+assert.equal((await get(`${headsetPresentation}/img/..%2f..%2f.env.local`, authHeaders)).status, 404)
+assert.equal((await get(`${headsetPresentation}/index_ru.html`, authHeaders)).status, 404)
+const headsetLogin = await post({ password, next: headsetProject })
+assert.equal(new URL(headsetLogin.headers.get("location")).pathname, headsetProject)
+check("Authenticated Same Images, Different Headsets page loads with its figures")
 
 const missing = await get(`${presentation}/unknown.txt`, authHeaders)
 assert.equal(missing.status, 404)

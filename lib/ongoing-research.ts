@@ -6,6 +6,8 @@ import { cookies } from "next/headers"
 export const RESEARCH_PATH = "/research/ongoing"
 export const RESEARCH_COOKIE = "ongoing_research_session"
 export const RESEARCH_SESSION_SECONDS = 60 * 60 * 8
+export const RESEARCH_PROJECTS = ["source-localization", "same-images-different-headsets"] as const
+export type ResearchProject = (typeof RESEARCH_PROJECTS)[number]
 
 export function researchRequestOrigin(request: Request) {
   // Next's internal URL may use localhost even when the browser uses 127.0.0.1.
@@ -35,9 +37,8 @@ export function isResearchConfigured() {
 
 export function safeResearchReturnPath(value: unknown) {
   // Only known project pages are valid login destinations, never external URLs.
-  return value === `${RESEARCH_PATH}/source-localization`
-    ? value
-    : RESEARCH_PATH
+  const project = RESEARCH_PROJECTS.find((name) => value === `${RESEARCH_PATH}/${name}`)
+  return project ? `${RESEARCH_PATH}/${project}` : RESEARCH_PATH
 }
 
 export function verifyResearchPassword(candidate: string) {

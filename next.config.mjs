@@ -3,6 +3,7 @@ const nextConfig = {
   experimental: {
     outputFileTracingIncludes: {
       "/research/ongoing/source-localization/presentation/[[...file]]": ["./private/ongoing-research.enc"],
+      "/research/ongoing/same-images-different-headsets/presentation/[[...file]]": ["./private/same-images-different-headsets.enc"],
     },
   },
   async headers() {

@@ -46,12 +46,12 @@ Graph URLs aligned with the public page address.
 
 `/research/ongoing` displays a password form; authenticated visitors can open the
 Source Localization presentation in English or Russian, including its notation
-guide and manuscript PDF. Sessions last eight hours and can be ended with Log out.
+guide and manuscript PDF, and the Same Images, Different Headsets presentation. Sessions last eight hours and can be ended with Log out.
 The section is excluded from indexing and every project/file request checks the
 session on the server. No private material is placed in `public/` or client bundles.
 
-The repository contains only `private/ongoing-research.enc`, an AES-256-GCM
-encrypted bundle. Keep both settings from the ignored `.env.local` file in Vercel's
+The repository contains only the AES-256-GCM encrypted bundles
+`private/ongoing-research.enc` and `private/same-images-different-headsets.enc`. Keep both settings from the ignored `.env.local` file in Vercel's
 environment variables for the deployments where the section should work:
 
 - `ONGOING_RESEARCH_PASSWORD`: the chosen password, never a `NEXT_PUBLIC_` variable.
@@ -82,6 +82,17 @@ command. Newly linked documents are included when first added to the bundle, and
 archived diagram is kept if its source file has been removed from the research checkout.
 The site's light theme and navigation are applied separately when the
 protected HTML is served.
+
+To update Same Images, Different Headsets from its research checkout:
+
+```bash
+node scripts/package-same-images-research.mjs /path/to/anatomy_anchored_decoding/paper/web
+pnpm build
+```
+
+The packager wraps `index.html` in a full document for the protected route and
+includes every `img/*.png` figure the page references; the figures are served as
+separate protected files next to it.
 
 The login endpoint limits failed attempts per server instance. For a deployment
 requiring a global limit across Vercel instances, also configure a shared rate limiter
